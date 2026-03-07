@@ -3,15 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Northern Colorado First-Time Home Buyer Programs | Stop Renting Today</title>
-    <meta name="description" content="Discover what homebuyer programs you may qualify for in Loveland, Fort Collins, Greeley, and Northern Colorado. Take the free 60-second Homeownership Check. No credit pull required.">
-    <meta name="keywords" content="first time home buyer Northern Colorado, Northern Colorado homebuyer programs, Loveland first time home buyer, Fort Collins home buying, Greeley homebuyer assistance, down payment assistance Colorado">
+    <title>Northern Colorado Homeownership Check | Own In NoCo</title>
+    <meta name="description" content="Discover your path from renting to owning in Northern Colorado with a 60‑second homeownership check. No credit pull, no pressure—just clarity on programs, timelines and next steps across Loveland, Fort Collins, Greeley and more.">
+    <meta name="keywords" content="first time home buyer Northern Colorado, Northern Colorado homebuyer programs, Loveland first time home buyer, Fort Collins home buying, Greeley homebuyer assistance, down payment assistance Colorado, NoCo homebuyer">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Stop Renting in Northern Colorado — You Might Be Closer to Owning">
-    <meta property="og:description" content="Discover homebuyer programs you may qualify for. Take the free 60-second check.">
+    <meta property="og:title" content="Stop Renting in Northern Colorado—You May Be Closer to Owning Than You Think">
+    <meta property="og:description" content="60‑second homeownership check. No credit pull, no pressure—just clarity on programs, timelines and next steps.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://noco-homeownership-plan.netlify.app/og-image.jpg">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- Tracking Placeholders -->
     <!-- Google Analytics -->
@@ -28,574 +31,160 @@
 
     <!-- Google Tag Manager -->
     <!-- <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM_ID');</script> -->
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f9f9f9;
-        }
-
-        /* HERO SECTION */
-        .hero {
-            background: linear-gradient(rgba(44, 62, 80, 0.7), rgba(44, 62, 80, 0.7)), url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1200') center/cover;
-            color: white;
-            padding: 80px 20px;
-            text-align: center;
-            min-height: 600px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .hero h1 {
-            font-size: 3.2rem;
-            margin-bottom: 20px;
-            font-weight: 800;
-            line-height: 1.2;
-            max-width: 900px;
-        }
-
-        .hero .subheadline {
-            font-size: 1.3rem;
-            margin-bottom: 30px;
-            max-width: 800px;
-            opacity: 0.95;
-        }
-
-        .trust-badges {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-            margin-bottom: 40px;
-            font-size: 1.05rem;
-        }
-
-        .trust-badges span {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .hero .cta-button {
-            display: inline-block;
-            background-color: #c41e3a;
-            color: white;
-            padding: 18px 50px;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1.1rem;
-            transition: background-color 0.3s;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .hero .cta-button:hover {
-            background-color: #a01830;
-        }
-
-        /* SECTIONS */
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        section {
-            padding: 80px 20px;
-        }
-
-        h2 {
-            font-size: 2.2rem;
-            margin-bottom: 30px;
-            color: #1a1a1a;
-            font-weight: 800;
-            text-align: center;
-            line-height: 1.3;
-        }
-
-        p {
-            font-size: 1.05rem;
-            margin-bottom: 15px;
-            line-height: 1.8;
-            color: #555;
-        }
-
-        /* SECTION 2 - WHY PEOPLE TAKE THE QUIZ */
-        .why-section {
-            background-color: white;
-        }
-
-        .why-section .content {
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .why-section p {
-            margin-bottom: 20px;
-            text-align: left;
-        }
-
-        .why-section ul {
-            margin: 20px 0;
-            padding-left: 20px;
-            text-align: left;
-        }
-
-        .why-section li {
-            margin-bottom: 12px;
-            font-size: 1.05rem;
-            color: #555;
-        }
-
-        /* SECTION 3 - WHAT YOU'LL LEARN */
-        .learn-section {
-            background-color: #f9f9f9;
-        }
-
-        .boxes {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
-            margin-top: 50px;
-        }
-
-        .box {
-            background: white;
-            padding: 40px 30px;
-            border-radius: 8px;
-            text-align: center;
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .box:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-        }
-
-        .box-icon {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-        }
-
-        .box h3 {
-            font-size: 1.4rem;
-            margin-bottom: 15px;
-            color: #1a1a1a;
-            font-weight: 700;
-        }
-
-        .box p {
-            color: #666;
-            text-align: center;
-        }
-
-        /* SECTION 4 - ABOUT CHRISTINE */
-        .about-section {
-            background: white;
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .about-image {
-            background: linear-gradient(135deg, #e8e8e8 0%, #d0d0d0 100%);
-            aspect-ratio: 1;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-        }
-
-        .about-text h3 {
-            font-size: 1.8rem;
-            color: #1a1a1a;
-            margin-bottom: 25px;
-            font-weight: 700;
-        }
-
-        .about-text p {
-            margin-bottom: 15px;
-            text-align: left;
-        }
-
-        /* SECTION 5 - QUIZ */
-        .quiz-section {
-            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-            color: white;
-            text-align: center;
-        }
-
-        .quiz-section h2 {
-            color: white;
-        }
-
-        .quiz-section .subtext {
-            font-size: 1.15rem;
-            margin-bottom: 40px;
-            color: rgba(255, 255, 255, 0.95);
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .quiz-container {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 40px 20px;
-            border-radius: 8px;
-            color: #333;
-            max-width: 600px;
-            margin: 0 auto;
-            min-height: 500px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .quiz-placeholder {
-            text-align: center;
-            color: #999;
-        }
-
-        .quiz-placeholder p {
-            margin: 10px 0;
-        }
-
-        /* SECTION 6 - TESTIMONIALS */
-        .testimonials-section {
-            background: white;
-        }
-
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .testimonial {
-            background: #f9f9f9;
-            padding: 30px;
-            border-radius: 8px;
-            border-left: 4px solid #c41e3a;
-        }
-
-        .testimonial-text {
-            font-size: 1rem;
-            margin-bottom: 20px;
-            color: #555;
-            font-style: italic;
-        }
-
-        .testimonial-author {
-            font-weight: 600;
-            color: #1a1a1a;
-        }
-
-        .testimonial-role {
-            font-size: 0.9rem;
-            color: #999;
-        }
-
-        .stars {
-            color: #c41e3a;
-            margin-bottom: 10px;
-        }
-
-        /* SECTION 7 - FINAL CTA */
-        .final-cta {
-            background: linear-gradient(135deg, #c41e3a 0%, #a01830 100%);
-            color: white;
-            text-align: center;
-        }
-
-        .final-cta h2 {
-            color: white;
-            margin-bottom: 20px;
-        }
-
-        .final-cta .cta-button {
-            background-color: white;
-            color: #c41e3a;
-            padding: 18px 50px;
-            font-weight: 700;
-            margin-top: 20px;
-            transition: all 0.3s;
-        }
-
-        .final-cta .cta-button:hover {
-            background-color: #f0f0f0;
-            transform: scale(1.05);
-        }
-
-        /* COMPLIANCE & INFO */
-        .compliance {
-            background: #fff3cd;
-            padding: 20px;
-            border-left: 4px solid #ffc107;
-            margin: 40px 0;
-            border-radius: 4px;
-            font-size: 0.95rem;
-            color: #856404;
-        }
-
-        /* FOOTER */
-        footer {
-            background: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 30px 20px;
-            font-size: 0.9rem;
-        }
-
-        footer a {
-            color: #ecf0f1;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        /* RESPONSIVE */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-
-            .hero .subheadline {
-                font-size: 1.1rem;
-            }
-
-            .trust-badges {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            h2 {
-                font-size: 1.8rem;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-
-            .boxes {
-                gap: 30px;
-            }
-
-            section {
-                padding: 50px 20px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-
-            .hero .subheadline {
-                font-size: 1rem;
-            }
-
-            .hero .cta-button {
-                padding: 15px 35px;
-                font-size: 1rem;
-            }
-
-            h2 {
-                font-size: 1.5rem;
-            }
-        }
-    </style>
 </head>
-<body>
+<body class="bg-white">
     <!-- Google Tag Manager (noscript) -->
     <!-- <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM_ID" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> -->
 
     <!-- HERO SECTION -->
-    <section class="hero" id="home">
-        <div class="container">
-            <h1>Stop Renting in Northern Colorado — You Might Be Closer to Owning Than You Think</h1>
-            <p class="subheadline">Take the 60-second Homeownership Check to see what homebuyer programs you may qualify for in Loveland, Fort Collins, Greeley, Windsor, and across Northern Colorado.</p>
-
-            <div class="trust-badges">
-                <span>✔ No credit pull</span>
-                <span>✔ No pressure</span>
-                <span>✔ Personalized guidance</span>
-            </div>
-
-            <button class="cta-button" onclick="document.getElementById('quiz').scrollIntoView({behavior: 'smooth'})">
-                Start My 60-Second Homeownership Check
-            </button>
+    <section class="bg-gradient-to-r from-rose-200 to-rose-50 px-6 py-12 text-center">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-4xl font-extrabold text-slate-800 sm:text-5xl">
+                Stop Renting in Northern Colorado—You May Be Closer to Owning Than You Think
+            </h1>
+            <p class="mt-4 text-lg text-slate-600">
+                Take this 60‑second Homeownership Check to see which programs, strategies and timelines may be right for you in Loveland, Fort Collins, Windsor, Greeley, Berthoud, Johnstown and beyond.
+            </p>
+            <ul class="mt-6 flex flex-col items-center space-y-2 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4 text-slate-700 font-semibold">
+                <li>✔ No credit pull</li>
+                <li>✔ No pressure</li>
+                <li>✔ Personalized guidance</li>
+            </ul>
+            <a href="#quiz" class="mt-8 inline-block rounded-xl bg-rose-600 px-8 py-3 text-white font-semibold hover:bg-rose-700 transition-colors shadow-md">
+                Start My 60‑Second Homeownership Check
+            </a>
         </div>
     </section>
 
-    <!-- SECTION 2 - WHY PEOPLE TAKE THE QUIZ -->
-    <section class="why-section">
-        <div class="container">
-            <h2>Many Northern Colorado Renters Are Surprised by Their Options</h2>
-
-            <div class="content">
-                <p>Many people assume they need perfect credit or a large down payment to buy a home. But across Northern Colorado—in Loveland, Fort Collins, Greeley, Windsor, Berthoud, Johnstown, and surrounding communities—there are often programs, strategies, and financing paths that can help buyers get started sooner than they expected.</p>
-
-                <p>Some buyers are even able to have closing costs covered depending on the program they qualify for.</p>
-
-                <h3 style="margin-top: 40px; margin-bottom: 20px; font-size: 1.4rem;">The goal of this quick check is simple:</h3>
-                <p style="font-size: 1.1rem; font-weight: 500;">Help you understand what path may make the most sense based on your situation.</p>
-
-                <div class="compliance" style="margin-top: 40px;">
-                    <strong>Important:</strong> Programs vary and qualification depends on credit, income, and lender approval. This tool is for educational purposes only.
-                </div>
+    <!-- WHY SECTION -->
+    <section class="bg-white py-12 px-6">
+        <div class="max-w-3xl mx-auto text-center">
+            <h2 class="text-3xl font-bold text-slate-800">Why Take This Check?</h2>
+            <p class="mt-4 text-slate-600 leading-relaxed">
+                Many renters assume they need perfect credit or tens of thousands down to buy a home. Across Northern Colorado there are grants, down‑payment assistance, and creative financing paths that can shorten the journey to ownership—some buyers even leave closing with checks in hand.
+            </p>
+            <div class="mt-6 p-4 bg-yellow-50 border-l-4 border-yellow-400 rounded text-left text-sm text-yellow-800">
+                <p><strong>Important:</strong> Programs vary and qualification depends on credit, income, and lender approval. This tool is for educational purposes only.</p>
             </div>
         </div>
     </section>
 
-    <!-- SECTION 3 - WHAT YOU'LL LEARN -->
-    <section class="learn-section">
-        <div class="container">
-            <h2>What You'll Learn in 60 Seconds</h2>
-
-            <div class="boxes">
-                <div class="box">
-                    <div class="box-icon">🏡</div>
-                    <h3>What Programs May Exist</h3>
-                    <p>Discover homebuyer assistance programs available in your area—from down payment help to closing cost coverage.</p>
+    <!-- WHAT YOU'LL LEARN -->
+    <section class="bg-slate-50 py-12 px-6">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-3xl font-bold text-center text-slate-800 mb-12">What You'll Learn in 60 Seconds</h2>
+            <div class="grid gap-8 md:grid-cols-3">
+                <div class="p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                    <span class="text-rose-600 text-4xl">🏡</span>
+                    <h3 class="mt-4 text-xl font-bold text-slate-800">Programs That Fit You</h3>
+                    <p class="mt-2 text-slate-600">Discover assistance programs—from down‑payment grants to closing‑cost help—available in your preferred Northern Colorado communities.</p>
                 </div>
-
-                <div class="box">
-                    <div class="box-icon">📅</div>
-                    <h3>What Timeline May Work</h3>
-                    <p>Understand when homeownership might realistically fit into your financial goals and life plans.</p>
+                <div class="p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                    <span class="text-rose-600 text-4xl">📅</span>
+                    <h3 class="mt-4 text-xl font-bold text-slate-800">Timeline That Makes Sense</h3>
+                    <p class="mt-2 text-slate-600">Understand when homeownership might realistically fit your financial goals—whether that's in months, a year, or after a bit more saving.</p>
                 </div>
-
-                <div class="box">
-                    <div class="box-icon">🎯</div>
-                    <h3>What Your Next Step Is</h3>
-                    <p>Get clarity on the smartest move forward—whether that's now, soon, or after building savings.</p>
+                <div class="p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                    <span class="text-rose-600 text-4xl">🎯</span>
+                    <h3 class="mt-4 text-xl font-bold text-slate-800">Your Smart Next Step</h3>
+                    <p class="mt-2 text-slate-600">Get clear direction on what to do next—connect with a lender, explore rent‑to‑own, or target a specific grant.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SECTION 4 - ABOUT CHRISTINE -->
-    <section class="about-section">
-        <div class="container">
-            <h2>Meet Christine Gwinnup</h2>
-
-            <div class="about-content">
-                <div class="about-image">👩‍💼</div>
-
-                <div class="about-text">
-                    <h3>Northern Colorado Real Estate Expert</h3>
-                    <p>Christine Gwinnup is a Northern Colorado real estate expert and founder of <strong>The Little Lady Sells Homes</strong>.</p>
-
-                    <p>She has helped hundreds of buyers understand the smartest path toward homeownership in Loveland, Fort Collins, Greeley, Windsor, Berthoud, and surrounding communities.</p>
-
-                    <p>Christine focuses on helping buyers make confident decisions, understand financing options, and navigate the Northern Colorado market with clarity—without the pressure or confusion.</p>
-
-                    <p style="margin-top: 30px; font-weight: 500; color: #1a1a1a;">Her mission: Help more renters discover they're closer to homeownership than they think.</p>
+    <!-- MEET CHRISTINE -->
+    <section class="bg-white py-12 px-6">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl font-bold text-center text-slate-800 mb-8">Meet Christine Gwinnup</h2>
+            <div class="flex flex-col md:flex-row items-center gap-8">
+                <div class="md:w-1/3 flex-shrink-0">
+                    <div class="w-48 h-48 bg-gradient-to-br from-rose-200 to-rose-100 rounded-full mx-auto flex items-center justify-center text-5xl">
+                        👩‍💼
+                    </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 5 - QUIZ -->
-    <section class="quiz-section" id="quiz">
-        <div class="container">
-            <h2>Your Northern Colorado Homeownership Roadmap</h2>
-            <p class="subtext">Unlock your path to homeownership in just 60 seconds. This quick check helps Christine understand your goals and current situation so she can help match you with the best possible options.</p>
-
-            <div class="quiz-container">
-                <div class="quiz-placeholder">
-                    <p style="font-size: 1.1rem;">🎯 Quiz Embed Placeholder</p>
-                    <p style="font-size: 0.95rem; color: #999;">Replace this with your Typeform, Jotform, or custom quiz embed</p>
-                    <p style="font-size: 0.85rem; color: #ccc; margin-top: 20px;">
-                        &lt;iframe src="YOUR_QUIZ_URL" width="100%" height="500" frameborder="0"&gt;&lt;/iframe&gt;
+                <div class="md:w-2/3">
+                    <p class="text-slate-600 leading-relaxed mb-4">
+                        Founder of <strong>The Little Lady Sells Homes</strong> and a seasoned real estate expert, Christine has helped hundreds of buyers in Loveland, Fort Collins, Windsor, Greeley, Berthoud and beyond understand the smartest path to homeownership. Her mission is simple: replace confusion with clarity and pressure with empowerment.
+                    </p>
+                    <p class="text-slate-600 italic mb-4">
+                        "I'm here to help you understand your options—not to push you into something you're not ready for."
+                    </p>
+                    <p class="text-slate-700 font-semibold">
+                        Christine focuses on helping buyers make confident decisions, understand financing options, and navigate the Northern Colorado market with clarity.
                     </p>
                 </div>
             </div>
-
-            <p style="margin-top: 30px; color: rgba(255, 255, 255, 0.85);">No credit pull. Just clarity.</p>
         </div>
     </section>
 
-    <!-- SECTION 6 - TESTIMONIALS -->
-    <section class="testimonials-section">
-        <div class="container">
-            <h2>What Buyers Are Saying</h2>
+    <!-- QUIZ SECTION -->
+    <section id="quiz" class="bg-slate-100 py-12 px-6">
+        <div class="max-w-3xl mx-auto text-center">
+            <h2 class="text-3xl font-bold text-slate-800">Your Northern Colorado Homeownership Roadmap</h2>
+            <p class="mt-4 text-slate-600 mb-8">
+                Unlock your path to homeownership in just 60 seconds. This quick check helps me understand your goals and current situation to connect you with the best options available.
+            </p>
 
-            <div class="testimonials-grid">
-                <div class="testimonial">
-                    <div class="stars">★★★★★</div>
-                    <p class="testimonial-text">"I thought I needed to save for 5 more years. Christine showed me I could buy within 18 months with the programs available to me."</p>
-                    <div class="testimonial-author">Sarah M.</div>
-                    <div class="testimonial-role">First-time buyer, Loveland</div>
+            <!-- Quiz Embed Placeholder -->
+            <div class="mt-8 bg-white p-8 rounded-lg shadow-sm">
+                <div class="text-center text-slate-400">
+                    <p class="text-lg mb-4">🎯 Quiz Embed Placeholder</p>
+                    <p class="text-sm mb-4">Replace this with your Typeform, Jotform, or custom quiz embed</p>
+                    <code class="text-xs bg-slate-100 p-4 block rounded mb-4 text-left overflow-auto">
+&lt;iframe src="YOUR_QUIZ_URL" width="100%" height="600" frameborder="0"&gt;&lt;/iframe&gt;
+                    </code>
+                    <p class="text-xs text-slate-500">Instructions: Update the iframe src attribute with your quiz URL</p>
                 </div>
+            </div>
 
-                <div class="testimonial">
-                    <div class="stars">★★★★★</div>
-                    <p class="testimonial-text">"This was so helpful. Christine explained down payment assistance programs I didn't even know existed in Colorado."</p>
-                    <div class="testimonial-author">Mike T.</div>
-                    <div class="testimonial-role">First-time buyer, Fort Collins</div>
-                </div>
+            <p class="mt-6 text-xs text-slate-500">No credit pull. Just clarity.</p>
+        </div>
+    </section>
 
-                <div class="testimonial">
-                    <div class="stars">★★★★★</div>
-                    <p class="testimonial-text">"No pressure, just real guidance. This quiz made it clear what my next steps should actually be."</p>
-                    <div class="testimonial-author">Jessica K.</div>
-                    <div class="testimonial-role">First-time buyer, Greeley</div>
-                </div>
+    <!-- TESTIMONIALS -->
+    <section class="bg-white py-12 px-6">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl font-bold text-center text-slate-800 mb-12">What Buyers Are Saying</h2>
+            <div class="space-y-6">
+                <blockquote class="border-l-4 border-rose-600 pl-6 py-2">
+                    <p class="text-slate-700 italic text-lg">"I thought I needed to save for 5 more years. Christine showed me I could buy within 18 months with the programs available to me."</p>
+                    <footer class="mt-2 text-slate-600 font-semibold">Sarah M., Loveland</footer>
+                </blockquote>
+                <blockquote class="border-l-4 border-rose-600 pl-6 py-2">
+                    <p class="text-slate-700 italic text-lg">"This was so helpful. Christine explained down payment assistance programs I didn't even know existed in Colorado."</p>
+                    <footer class="mt-2 text-slate-600 font-semibold">Mike T., Fort Collins</footer>
+                </blockquote>
+                <blockquote class="border-l-4 border-rose-600 pl-6 py-2">
+                    <p class="text-slate-700 italic text-lg">"No pressure, just real guidance. This check made it clear what my next steps should actually be."</p>
+                    <footer class="mt-2 text-slate-600 font-semibold">Jessica K., Greeley</footer>
+                </blockquote>
             </div>
         </div>
     </section>
 
-    <!-- SECTION 7 - FINAL CTA -->
-    <section class="final-cta">
-        <div class="container">
-            <h2>Ready to See What Might Be Possible?</h2>
-            <p style="color: rgba(255, 255, 255, 0.95); margin-bottom: 0;">Take the 60-second check and discover your homeownership roadmap.</p>
-            <button class="cta-button" onclick="document.getElementById('quiz').scrollIntoView({behavior: 'smooth'})">
-                Take the 60-Second Homeownership Check
-            </button>
+    <!-- CTA FOOTER -->
+    <section class="bg-gradient-to-r from-rose-50 to-rose-200 py-12 px-6 text-center">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl font-bold text-slate-800">Ready to See What Might Be Possible?</h2>
+            <p class="mt-4 text-slate-600 mb-8">Take the 60‑second check and discover your homeownership roadmap.</p>
+            <a href="#quiz" class="inline-block rounded-xl bg-rose-600 px-10 py-4 text-white font-semibold hover:bg-rose-700 transition-colors shadow-md">
+                Start My 60‑Second Homeownership Check
+            </a>
         </div>
     </section>
 
     <!-- FOOTER -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 Christine Gwinnup | The Little Lady Sells Homes | Northern Colorado Real Estate</p>
-            <p style="margin-top: 10px; font-size: 0.85rem;">
-                <a href="#">Privacy Policy</a> | <a href="#">Disclaimer</a> | <a href="https://www.thelittleladysellshomes.com">Visit Main Website</a>
-            </p>
-            <p style="margin-top: 15px; font-size: 0.85rem; color: #bbb;">
-                Serving Loveland • Fort Collins • Greeley • Windsor • Berthoud • Johnstown • Severance • Eaton • Northern Colorado
-            </p>
-        </div>
+    <footer class="bg-white border-t border-slate-200 py-8 text-center text-slate-600 text-sm px-6">
+        <p class="font-semibold">© 2026 Christine Gwinnup | The Little Lady Sells Homes | Northern Colorado Real Estate</p>
+        <p class="mt-3">
+            Serving Loveland • Fort Collins • Greeley • Windsor • Berthoud • Johnstown • Severance • Eaton • Northern Colorado
+        </p>
+        <p class="mt-4 space-x-4">
+            <a href="/privacy-policy" class="hover:text-rose-600 transition-colors">Privacy Policy</a> |
+            <a href="/disclaimer" class="hover:text-rose-600 transition-colors">Disclaimer</a> |
+            <a href="https://www.thelittleladysellshomes.com" class="hover:text-rose-600 transition-colors">Visit Main Website</a>
+        </p>
     </footer>
 
     <!-- JSON-LD Schema Markup -->
@@ -607,7 +196,6 @@
         "description": "Northern Colorado real estate expert helping first-time home buyers understand their homeownership options.",
         "url": "https://noco-homeownership-plan.netlify.app",
         "image": "https://www.thelittleladysellshomes.com/logo.png",
-        "telephone": "",
         "address": {
             "@type": "PostalAddress",
             "addressRegion": "CO",
@@ -618,7 +206,9 @@
                 "Greeley, CO",
                 "Windsor, CO",
                 "Berthoud, CO",
-                "Johnstown, CO"
+                "Johnstown, CO",
+                "Severance, CO",
+                "Eaton, CO"
             ]
         }
     }
@@ -651,7 +241,7 @@
                 "name": "What assistance programs exist for Northern Colorado homebuyers?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Northern Colorado has several homebuyer assistance programs available, including down payment assistance, closing cost coverage, and various financing options through CHFA, USDA loans, and local programs. Specific programs vary by location and qualification criteria."
+                    "text": "Northern Colorado has several homebuyer assistance programs available, including down payment assistance, closing cost coverage, and various financing options. Programs vary by location and qualification criteria."
                 }
             },
             {
@@ -675,7 +265,7 @@
                 "name": "Do I need perfect credit to buy a home?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "No. While credit does play a role in loan approval, there are many programs available that work with buyers who have less-than-perfect credit. Many Northern Colorado buyers qualify for assistance despite credit challenges. Qualification depends on credit, income, and lender approval."
+                    "text": "No. While credit does play a role in loan approval, there are many programs available that work with buyers who have less-than-perfect credit. Qualification depends on credit, income, and lender approval."
                 }
             }
         ]
