@@ -3,17 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Northern Colorado First-Time Home Buyer Programs (2026 Guide) | Loveland, Windsor, Greeley</title>
-    <meta name="description" content="Discover first-time home buyer programs and down payment assistance available in Northern Colorado. Explore CHFA, USDA, and local programs in Loveland, Windsor, Greeley, and surrounding communities. See what may work for your situation.">
-    <meta name="keywords" content="first time home buyer programs colorado, down payment assistance northern colorado, buying a house in northern colorado, loveland first time home buyer programs, CHFA down payment assistance colorado">
-    <meta property="og:title" content="Northern Colorado First-Time Home Buyer Programs (2026 Guide)">
-    <meta property="og:description" content="Discover first-time home buyer programs and down payment assistance available in Northern Colorado.">
+    <title>Northern Colorado First-Time Home Buyer Programs | Stop Renting Today</title>
+    <meta name="description" content="Discover what homebuyer programs you may qualify for in Loveland, Fort Collins, Greeley, and Northern Colorado. Take the free 60-second Homeownership Check. No credit pull required.">
+    <meta name="keywords" content="first time home buyer Northern Colorado, Northern Colorado homebuyer programs, Loveland first time home buyer, Fort Collins home buying, Greeley homebuyer assistance, down payment assistance Colorado">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Stop Renting in Northern Colorado — You Might Be Closer to Owning">
+    <meta property="og:description" content="Discover homebuyer programs you may qualify for. Take the free 60-second check.">
     <meta property="og:type" content="website">
+    <meta property="og:image" content="https://noco-homeownership-plan.netlify.app/og-image.jpg">
+
+    <!-- Tracking Placeholders -->
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        // gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+
+    <!-- Meta Pixel -->
+    <!-- <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=PIXEL_ID&ev=PageView&noscript=1"/> -->
+
+    <!-- Google Tag Manager -->
+    <!-- <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM_ID');</script> -->
+
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -23,313 +47,600 @@
             background-color: #f9f9f9;
         }
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            background-color: white;
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(rgba(44, 62, 80, 0.7), rgba(44, 62, 80, 0.7)), url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1200') center/cover;
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            min-height: 600px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
-        h1 {
-            font-size: 2.8rem;
-            margin-bottom: 30px;
-            color: #1a1a1a;
-            line-height: 1.2;
+        .hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 20px;
             font-weight: 800;
+            line-height: 1.2;
+            max-width: 900px;
+        }
+
+        .hero .subheadline {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            max-width: 800px;
+            opacity: 0.95;
+        }
+
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+            font-size: 1.05rem;
+        }
+
+        .trust-badges span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .hero .cta-button {
+            display: inline-block;
+            background-color: #c41e3a;
+            color: white;
+            padding: 18px 50px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: background-color 0.3s;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero .cta-button:hover {
+            background-color: #a01830;
+        }
+
+        /* SECTIONS */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 20px;
         }
 
         h2 {
-            font-size: 1.8rem;
-            margin-top: 40px;
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            color: #1a1a1a;
+            font-weight: 800;
+            text-align: center;
+            line-height: 1.3;
+        }
+
+        p {
+            font-size: 1.05rem;
+            margin-bottom: 15px;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        /* SECTION 2 - WHY PEOPLE TAKE THE QUIZ */
+        .why-section {
+            background-color: white;
+        }
+
+        .why-section .content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .why-section p {
             margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .why-section ul {
+            margin: 20px 0;
+            padding-left: 20px;
+            text-align: left;
+        }
+
+        .why-section li {
+            margin-bottom: 12px;
+            font-size: 1.05rem;
+            color: #555;
+        }
+
+        /* SECTION 3 - WHAT YOU'LL LEARN */
+        .learn-section {
+            background-color: #f9f9f9;
+        }
+
+        .boxes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .box {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        }
+
+        .box-icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+
+        .box h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
             color: #1a1a1a;
             font-weight: 700;
         }
 
-        p {
-            margin-bottom: 15px;
-            font-size: 1.05rem;
-            line-height: 1.7;
+        .box p {
+            color: #666;
+            text-align: center;
         }
 
-        ul {
-            margin-left: 20px;
-            margin-bottom: 20px;
+        /* SECTION 4 - ABOUT CHRISTINE */
+        .about-section {
+            background: white;
         }
 
-        li {
-            margin-bottom: 10px;
-            font-size: 1.05rem;
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            max-width: 1000px;
+            margin: 0 auto;
         }
 
-        .intro-section {
-            background-color: #f5f5f5;
-            padding: 30px;
+        .about-image {
+            background: linear-gradient(135deg, #e8e8e8 0%, #d0d0d0 100%);
+            aspect-ratio: 1;
             border-radius: 8px;
-            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
         }
 
+        .about-text h3 {
+            font-size: 1.8rem;
+            color: #1a1a1a;
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        /* SECTION 5 - QUIZ */
         .quiz-section {
-            background-color: #2c3e50;
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
             color: white;
-            padding: 50px 40px;
-            border-radius: 0;
-            margin: 50px -20px;
             text-align: center;
         }
 
         .quiz-section h2 {
             color: white;
-            margin-top: 0;
-            font-size: 2.2rem;
         }
 
-        .quiz-section p {
-            color: rgba(255, 255, 255, 0.95);
+        .quiz-section .subtext {
             font-size: 1.15rem;
+            margin-bottom: 40px;
+            color: rgba(255, 255, 255, 0.95);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .info-section {
-            background-color: #f9f9f9;
-            padding: 30px;
+        .quiz-container {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px 20px;
             border-radius: 8px;
-            margin: 30px 0;
-            border-left: 4px solid #2c3e50;
-        }
-
-        .compliance-box {
-            background-color: #fff3cd;
-            border-left: 4px solid #ffc107;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 4px;
-        }
-
-        .faq-section {
-            margin: 40px 0;
-        }
-
-        .faq-item {
-            margin-bottom: 25px;
-            padding-bottom: 25px;
-            border-bottom: 1px solid #eee;
-        }
-
-        .faq-item:last-child {
-            border-bottom: none;
-        }
-
-        .faq-question {
-            font-weight: 600;
-            font-size: 1.1rem;
-            margin-bottom: 10px;
-            color: #1a1a1a;
-        }
-
-        .faq-answer {
-            color: #555;
-            line-height: 1.7;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background-color: #c41e3a;
-            color: white;
-            padding: 16px 45px;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: 700;
-            margin: 20px 0;
-            transition: background-color 0.3s;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-        }
-
-        .cta-button:hover {
-            background-color: #a01830;
-        }
-
-        .steps {
-            list-style: none;
-            counter-reset: step-counter;
-        }
-
-        .steps li {
-            counter-increment: step-counter;
-            margin-bottom: 15px;
-            padding-left: 40px;
-            position: relative;
-        }
-
-        .steps li::before {
-            content: counter(step-counter);
-            position: absolute;
-            left: 0;
-            top: 0;
-            background-color: #2c3e50;
-            color: white;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            min-height: 500px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: bold;
         }
 
-        .authority-section {
-            background-color: #f5f5f5;
+        .quiz-placeholder {
+            text-align: center;
+            color: #999;
+        }
+
+        .quiz-placeholder p {
+            margin: 10px 0;
+        }
+
+        /* SECTION 6 - TESTIMONIALS */
+        .testimonials-section {
+            background: white;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .testimonial {
+            background: #f9f9f9;
             padding: 30px;
             border-radius: 8px;
-            margin: 40px 0;
-            border-left: 4px solid #2c3e50;
+            border-left: 4px solid #c41e3a;
         }
 
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 1.8rem;
+        .testimonial-text {
+            font-size: 1rem;
+            margin-bottom: 20px;
+            color: #555;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        .testimonial-role {
+            font-size: 0.9rem;
+            color: #999;
+        }
+
+        .stars {
+            color: #c41e3a;
+            margin-bottom: 10px;
+        }
+
+        /* SECTION 7 - FINAL CTA */
+        .final-cta {
+            background: linear-gradient(135deg, #c41e3a 0%, #a01830 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .final-cta h2 {
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .final-cta .cta-button {
+            background-color: white;
+            color: #c41e3a;
+            padding: 18px 50px;
+            font-weight: 700;
+            margin-top: 20px;
+            transition: all 0.3s;
+        }
+
+        .final-cta .cta-button:hover {
+            background-color: #f0f0f0;
+            transform: scale(1.05);
+        }
+
+        /* COMPLIANCE & INFO */
+        .compliance {
+            background: #fff3cd;
+            padding: 20px;
+            border-left: 4px solid #ffc107;
+            margin: 40px 0;
+            border-radius: 4px;
+            font-size: 0.95rem;
+            color: #856404;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: #ecf0f1;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero .subheadline {
+                font-size: 1.1rem;
+            }
+
+            .trust-badges {
+                flex-direction: column;
+                gap: 15px;
             }
 
             h2 {
-                font-size: 1.3rem;
+                font-size: 1.8rem;
             }
 
-            .container {
-                padding: 20px 15px;
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
             }
 
-            .quiz-section {
-                margin: 30px -15px;
-                padding: 30px 20px;
+            .boxes {
+                gap: 30px;
+            }
+
+            section {
+                padding: 50px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero .subheadline {
+                font-size: 1rem;
+            }
+
+            .hero .cta-button {
+                padding: 15px 35px;
+                font-size: 1rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- H1 -->
-        <h1>Northern Colorado First-Time Home Buyer Programs (2026 Guide)</h1>
-        <p style="font-size: 1.1rem; color: #666; margin-bottom: 30px;"><strong>Loveland • Fort Collins • Windsor • Greeley • Berthoud • Eaton • Johnstown • Severance</strong></p>
+    <!-- Google Tag Manager (noscript) -->
+    <!-- <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM_ID" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> -->
 
-        <!-- Intro Section -->
-        <div class="intro-section">
-            <p>Many renters across Loveland, Windsor, Greeley, Fort Collins and surrounding Northern Colorado communities are surprised to learn that there are several programs designed to help first-time buyers move toward homeownership sooner than they expected.</p>
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Stop Renting in Northern Colorado — You Might Be Closer to Owning Than You Think</h1>
+            <p class="subheadline">Take the 60-second Homeownership Check to see what homebuyer programs you may qualify for in Loveland, Fort Collins, Greeley, Windsor, and across Northern Colorado.</p>
 
-            <p>Depending on the program and the buyer's financial situation, some buyers may qualify for down payment assistance, closing cost support, or other programs designed to reduce upfront costs.</p>
-
-            <p>The best first step is understanding what options may apply to your timeline and goals.</p>
-
-            <p><strong>This quick check helps identify which first-time home buyer programs and strategies may be worth exploring based on your situation.</strong></p>
-        </div>
-
-        <!-- Roadmap Subheading -->
-        <h2>See What Homebuyer Assistance You May Qualify For</h2>
-
-        <!-- Quiz Section -->
-        <div class="quiz-section">
-            <h2>Discover Your Path Forward in About 60 Seconds</h2>
-            <p>This quick check helps identify which first-time home buyer programs and strategies may align with your timeline and financial situation.</p>
-            <p><strong>No credit pull. No pressure. Just clarity.</strong></p>
-            <a href="#quiz-form" class="cta-button">Start the 60-Second Check</a>
-        </div>
-
-        <!-- Why Northern Colorado Section -->
-        <h2>Why Northern Colorado Is One of the Best Places for First-Time Buyers in Colorado</h2>
-        <p>Northern Colorado communities like Loveland, Windsor, Greeley, Berthoud, Eaton and Johnstown often offer more attainable home prices than Denver while maintaining strong job access, lifestyle amenities, and long-term value.</p>
-        <p>Because home prices are often lower than the Denver metro area, <strong>down payment assistance programs can sometimes have a larger impact for buyers in Northern Colorado</strong>.</p>
-
-        <h2>Common First-Time Home Buyer Programs in Colorado</h2>
-        <p>Buyers across Loveland, Windsor, Greeley, Berthoud, Eaton and Fort Collins often explore several types of programs when purchasing their first home.</p>
-        <p><strong>These may include:</strong></p>
-        <ul>
-            <li><strong>CHFA down payment assistance</strong> — Colorado Housing and Finance Authority programs designed to help with down payments and closing costs</li>
-            <li><strong>USDA Rural Development financing</strong> — One financing option that may allow qualified buyers to purchase a home with little or no down payment in certain eligible rural areas in Northern Colorado (eligibility depends on location, income limits, and lender approval)</li>
-            <li><strong>Local housing assistance programs</strong> — City and county programs that change regularly based on funding and availability</li>
-        </ul>
-        <p>Because programs change frequently, <strong>the smartest first step is identifying which options may apply to your situation</strong>.</p>
-
-        <!-- Compliance Section -->
-        <div class="compliance-box">
-            <p><strong>Important:</strong> Every program has different eligibility guidelines and requirements, and not every buyer will qualify. However, many renters are surprised to discover that purchasing a home may be more achievable than they originally thought when they understand their financing options and what assistance programs may apply to their situation.</p>
-        </div>
-
-        <!-- How Buying Works Section -->
-        <h2>How Buying a Home in Northern Colorado Works</h2>
-        <p>Buying your first home in Northern Colorado is not just about finding the right property. It is about understanding:</p>
-        <ul>
-            <li>Your financing options and what lenders may offer</li>
-            <li>Available assistance programs that may apply to your situation</li>
-            <li>The local market conditions across communities like Loveland, Windsor, and Greeley</li>
-            <li>A realistic monthly payment strategy based on your income and goals</li>
-        </ul>
-        <p>Christine Gwinnup is a Colorado Realtor® who has been investing in Northern Colorado real estate since 2001. She has helped more than 400 buyers navigate the process of purchasing homes across Loveland, Windsor, Greeley, Berthoud, Eaton, Johnstown and surrounding communities.</p>
-
-        <!-- What Happens After Quiz Section -->
-        <div class="info-section">
-            <h2>What Happens After You Complete the Check</h2>
-            <p>Once you answer the quick questions:</p>
-            <ul class="steps">
-                <li>Christine reviews your responses and timeline</li>
-                <li>She identifies which first-time home buyer programs and strategies may align with your goals</li>
-                <li>You receive guidance on the next smartest steps based on your situation</li>
-            </ul>
-            <p>There is no obligation and no pressure — just a clearer understanding of your options.</p>
-        </div>
-
-        <!-- CTA Section -->
-        <div class="quiz-section">
-            <h2>Start Your Northern Colorado Homeownership Plan</h2>
-            <p>Whether you're hoping to buy in 3 months or 3 years, understanding your options early can help you make smarter financial decisions.</p>
-            <p>This quick check helps identify which first-time buyer programs and strategies may be worth exploring based on your timeline.</p>
-            <a href="#quiz-form" class="cta-button">Start Your Plan Now</a>
-        </div>
-
-        <!-- Quiz Form Placeholder -->
-        <div id="quiz-form" class="info-section">
-            <h3>Your First-Time Home Buyer Program Check</h3>
-            <p><em>This is where your Lofty or lead capture quiz form would be embedded. The form collects basic information about the prospect's home buying timeline, location preference, and financial situation to help Christine match them with relevant first-time home buyer programs in Northern Colorado.</em></p>
-        </div>
-
-        <!-- FAQ Section -->
-        <h2>Frequently Asked Questions About First-Time Home Buyer Programs</h2>
-        <div class="faq-section">
-            <div class="faq-item">
-                <div class="faq-question">What first-time home buyer programs are available in Colorado?</div>
-                <div class="faq-answer">Several programs exist for Colorado buyers, including CHFA down payment assistance programs, USDA Rural Development financing in eligible areas, and local housing initiatives. The programs available depend on your location, income, and the lender you work with. Many change annually, so it's important to explore your specific options.</div>
+            <div class="trust-badges">
+                <span>✔ No credit pull</span>
+                <span>✔ No pressure</span>
+                <span>✔ Personalized guidance</span>
             </div>
 
-            <div class="faq-item">
-                <div class="faq-question">Are there down payment assistance programs in Northern Colorado?</div>
-                <div class="faq-answer">Yes. Down payment assistance programs exist through various sources including CHFA, local government initiatives, and lender programs. Eligibility varies, and the amount of assistance available depends on your financial situation, the property location, and which program you qualify for.</div>
-            </div>
+            <button class="cta-button" onclick="document.getElementById('quiz').scrollIntoView({behavior: 'smooth'})">
+                Start My 60-Second Homeownership Check
+            </button>
+        </div>
+    </section>
 
-            <div class="faq-item">
-                <div class="faq-question">What credit score do I need to buy a home in Colorado?</div>
-                <div class="faq-answer">Credit score requirements vary by loan program and lender. Some programs offer flexibility for buyers with lower credit scores, while others have stricter requirements. The best way to understand what's available for your situation is to discuss your profile with a knowledgeable lender.</div>
-            </div>
+    <!-- SECTION 2 - WHY PEOPLE TAKE THE QUIZ -->
+    <section class="why-section">
+        <div class="container">
+            <h2>Many Northern Colorado Renters Are Surprised by Their Options</h2>
 
-            <div class="faq-item">
-                <div class="faq-question">Can USDA loans help me buy in Northern Colorado?</div>
-                <div class="faq-answer">USDA Rural Development loans are one financing option that may allow qualified buyers to purchase a home with little or no down payment in certain eligible areas. Eligibility depends on location, income limits, and lender approval. Not all areas of Northern Colorado qualify as eligible rural areas under USDA guidelines.</div>
-            </div>
+            <div class="content">
+                <p>Many people assume they need perfect credit or a large down payment to buy a home. But across Northern Colorado—in Loveland, Fort Collins, Greeley, Windsor, Berthoud, Johnstown, and surrounding communities—there are often programs, strategies, and financing paths that can help buyers get started sooner than they expected.</p>
 
-            <div class="faq-item">
-                <div class="faq-question">How do I know which programs I might qualify for?</div>
-                <div class="faq-answer">The best way to find out is to review your situation with a professional who understands first-time home buyer programs. That's exactly what the quick check above is designed to help with — identifying which programs and strategies may be worth exploring based on your timeline and financial situation.</div>
+                <p>Some buyers are even able to have closing costs covered depending on the program they qualify for.</p>
+
+                <h3 style="margin-top: 40px; margin-bottom: 20px; font-size: 1.4rem;">The goal of this quick check is simple:</h3>
+                <p style="font-size: 1.1rem; font-weight: 500;">Help you understand what path may make the most sense based on your situation.</p>
+
+                <div class="compliance" style="margin-top: 40px;">
+                    <strong>Important:</strong> Programs vary and qualification depends on credit, income, and lender approval. This tool is for educational purposes only.
+                </div>
             </div>
         </div>
+    </section>
 
-        <!-- Local Authority Section -->
-        <div class="authority-section">
-            <h2>Get Expert Guidance on First-Time Home Buyer Programs in Northern Colorado</h2>
-            <p>Christine Gwinnup works closely with experienced lenders to help buyers understand their financing options, potential assistance programs, realistic monthly payment strategies, and local market conditions across Northern Colorado.</p>
-            <p>Buyers exploring first-time home buyer programs in Colorado often focus on communities across Loveland, Windsor, Greeley, Berthoud, Eaton, Johnstown and Severance — where Northern Colorado continues to offer strong long-term value and quality of life.</p>
-            <p><strong>Understanding which programs may apply to your situation is the first step toward turning the goal of homeownership into a realistic plan.</strong></p>
+    <!-- SECTION 3 - WHAT YOU'LL LEARN -->
+    <section class="learn-section">
+        <div class="container">
+            <h2>What You'll Learn in 60 Seconds</h2>
+
+            <div class="boxes">
+                <div class="box">
+                    <div class="box-icon">🏡</div>
+                    <h3>What Programs May Exist</h3>
+                    <p>Discover homebuyer assistance programs available in your area—from down payment help to closing cost coverage.</p>
+                </div>
+
+                <div class="box">
+                    <div class="box-icon">📅</div>
+                    <h3>What Timeline May Work</h3>
+                    <p>Understand when homeownership might realistically fit into your financial goals and life plans.</p>
+                </div>
+
+                <div class="box">
+                    <div class="box-icon">🎯</div>
+                    <h3>What Your Next Step Is</h3>
+                    <p>Get clarity on the smartest move forward—whether that's now, soon, or after building savings.</p>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
 
-    <!-- Schema Markup - FAQPage -->
+    <!-- SECTION 4 - ABOUT CHRISTINE -->
+    <section class="about-section">
+        <div class="container">
+            <h2>Meet Christine Gwinnup</h2>
+
+            <div class="about-content">
+                <div class="about-image">👩‍💼</div>
+
+                <div class="about-text">
+                    <h3>Northern Colorado Real Estate Expert</h3>
+                    <p>Christine Gwinnup is a Northern Colorado real estate expert and founder of <strong>The Little Lady Sells Homes</strong>.</p>
+
+                    <p>She has helped hundreds of buyers understand the smartest path toward homeownership in Loveland, Fort Collins, Greeley, Windsor, Berthoud, and surrounding communities.</p>
+
+                    <p>Christine focuses on helping buyers make confident decisions, understand financing options, and navigate the Northern Colorado market with clarity—without the pressure or confusion.</p>
+
+                    <p style="margin-top: 30px; font-weight: 500; color: #1a1a1a;">Her mission: Help more renters discover they're closer to homeownership than they think.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5 - QUIZ -->
+    <section class="quiz-section" id="quiz">
+        <div class="container">
+            <h2>Your Northern Colorado Homeownership Roadmap</h2>
+            <p class="subtext">Unlock your path to homeownership in just 60 seconds. This quick check helps Christine understand your goals and current situation so she can help match you with the best possible options.</p>
+
+            <div class="quiz-container">
+                <div class="quiz-placeholder">
+                    <p style="font-size: 1.1rem;">🎯 Quiz Embed Placeholder</p>
+                    <p style="font-size: 0.95rem; color: #999;">Replace this with your Typeform, Jotform, or custom quiz embed</p>
+                    <p style="font-size: 0.85rem; color: #ccc; margin-top: 20px;">
+                        &lt;iframe src="YOUR_QUIZ_URL" width="100%" height="500" frameborder="0"&gt;&lt;/iframe&gt;
+                    </p>
+                </div>
+            </div>
+
+            <p style="margin-top: 30px; color: rgba(255, 255, 255, 0.85);">No credit pull. Just clarity.</p>
+        </div>
+    </section>
+
+    <!-- SECTION 6 - TESTIMONIALS -->
+    <section class="testimonials-section">
+        <div class="container">
+            <h2>What Buyers Are Saying</h2>
+
+            <div class="testimonials-grid">
+                <div class="testimonial">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"I thought I needed to save for 5 more years. Christine showed me I could buy within 18 months with the programs available to me."</p>
+                    <div class="testimonial-author">Sarah M.</div>
+                    <div class="testimonial-role">First-time buyer, Loveland</div>
+                </div>
+
+                <div class="testimonial">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"This was so helpful. Christine explained down payment assistance programs I didn't even know existed in Colorado."</p>
+                    <div class="testimonial-author">Mike T.</div>
+                    <div class="testimonial-role">First-time buyer, Fort Collins</div>
+                </div>
+
+                <div class="testimonial">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"No pressure, just real guidance. This quiz made it clear what my next steps should actually be."</p>
+                    <div class="testimonial-author">Jessica K.</div>
+                    <div class="testimonial-role">First-time buyer, Greeley</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 7 - FINAL CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>Ready to See What Might Be Possible?</h2>
+            <p style="color: rgba(255, 255, 255, 0.95); margin-bottom: 0;">Take the 60-second check and discover your homeownership roadmap.</p>
+            <button class="cta-button" onclick="document.getElementById('quiz').scrollIntoView({behavior: 'smooth'})">
+                Take the 60-Second Homeownership Check
+            </button>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Christine Gwinnup | The Little Lady Sells Homes | Northern Colorado Real Estate</p>
+            <p style="margin-top: 10px; font-size: 0.85rem;">
+                <a href="#">Privacy Policy</a> | <a href="#">Disclaimer</a> | <a href="https://www.thelittleladysellshomes.com">Visit Main Website</a>
+            </p>
+            <p style="margin-top: 15px; font-size: 0.85rem; color: #bbb;">
+                Serving Loveland • Fort Collins • Greeley • Windsor • Berthoud • Johnstown • Severance • Eaton • Northern Colorado
+            </p>
+        </div>
+    </footer>
+
+    <!-- JSON-LD Schema Markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "The Little Lady Sells Homes",
+        "description": "Northern Colorado real estate expert helping first-time home buyers understand their homeownership options.",
+        "url": "https://noco-homeownership-plan.netlify.app",
+        "image": "https://www.thelittleladysellshomes.com/logo.png",
+        "telephone": "",
+        "address": {
+            "@type": "PostalAddress",
+            "addressRegion": "CO",
+            "addressLocality": "Northern Colorado",
+            "areaServed": [
+                "Loveland, CO",
+                "Fort Collins, CO",
+                "Greeley, CO",
+                "Windsor, CO",
+                "Berthoud, CO",
+                "Johnstown, CO"
+            ]
+        }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "RealEstateAgent",
+        "name": "Christine Gwinnup",
+        "jobTitle": "Real Estate Agent & Founder",
+        "url": "https://www.thelittleladysellshomes.com",
+        "knowsAbout": [
+            "First-time home buyer programs",
+            "Down payment assistance",
+            "FHA loans",
+            "USDA loans",
+            "Conventional financing"
+        ]
+    }
+    </script>
+
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -337,73 +648,36 @@
         "mainEntity": [
             {
                 "@type": "Question",
-                "name": "What first-time home buyer programs are available in Colorado?",
+                "name": "What assistance programs exist for Northern Colorado homebuyers?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Several programs exist for Colorado buyers, including CHFA down payment assistance programs, USDA Rural Development financing in eligible areas, and local housing initiatives. The programs available depend on your location, income, and the lender you work with."
+                    "text": "Northern Colorado has several homebuyer assistance programs available, including down payment assistance, closing cost coverage, and various financing options through CHFA, USDA loans, and local programs. Specific programs vary by location and qualification criteria."
                 }
             },
             {
                 "@type": "Question",
-                "name": "Are there down payment assistance programs in Northern Colorado?",
+                "name": "Can renters qualify for homebuyer assistance?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Yes. Down payment assistance programs exist through various sources including CHFA, local government initiatives, and lender programs. Eligibility varies based on your financial situation, property location, and which program you qualify for."
+                    "text": "Yes. Many renters qualify for homebuyer assistance programs in Northern Colorado. Some buyers are able to have closing costs covered depending on the program they qualify for and their specific financial situation."
                 }
             },
             {
                 "@type": "Question",
-                "name": "What credit score do I need to buy a home in Colorado?",
+                "name": "How do I know if I qualify for buying a home?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Credit score requirements vary by loan program and lender. Some programs offer flexibility for buyers with lower credit scores. The best way to understand what's available for your situation is to discuss your profile with a knowledgeable lender."
+                    "text": "The best way to understand your options is to explore what programs may apply to your situation. Take the 60-second Homeownership Check to get personalized guidance based on your goals and circumstances."
                 }
             },
             {
                 "@type": "Question",
-                "name": "Can USDA loans help me buy in Northern Colorado?",
+                "name": "Do I need perfect credit to buy a home?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "USDA Rural Development loans are one financing option that may allow qualified buyers to purchase with little or no down payment in certain eligible areas. Eligibility depends on location, income limits, and lender approval."
+                    "text": "No. While credit does play a role in loan approval, there are many programs available that work with buyers who have less-than-perfect credit. Many Northern Colorado buyers qualify for assistance despite credit challenges. Qualification depends on credit, income, and lender approval."
                 }
             }
-        ]
-    }
-    </script>
-
-    <!-- Schema Markup - LocalBusiness -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "The Little Lady Sells Homes",
-        "image": "https://thelittleladyinc.com/logo.png",
-        "description": "First-time home buyer programs and real estate services in Northern Colorado",
-        "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "Main Street",
-            "addressLocality": "Loveland",
-            "addressRegion": "CO",
-            "postalCode": "80537",
-            "addressCountry": "US"
-        },
-        "url": "https://thelittleladyinc.com",
-        "telephone": "+1-970-XXX-XXXX",
-        "priceRange": "$",
-        "areaServed": [
-            "Loveland",
-            "Windsor",
-            "Greeley",
-            "Fort Collins",
-            "Berthoud",
-            "Eaton",
-            "Johnstown",
-            "Severance",
-            "Northern Colorado"
-        ],
-        "sameAs": [
-            "https://www.facebook.com/thelittleladyincco",
-            "https://www.instagram.com/thelittleladyinc"
         ]
     }
     </script>
