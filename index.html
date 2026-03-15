@@ -142,27 +142,52 @@
               style="border: none; width: 100%; min-height: 700px; border-radius: 12px;"
               title="Homeownership Check"
               allow="fullscreen"
-              tabindex="-1">
+              tabindex="-1"
+              scrolling="no">
             </iframe>
             <script>
-              // Prevent iframe from stealing scroll position
-              if ('scrollRestoration' in history) {
-                history.scrollRestoration = 'manual';
-              }
-              // Reset scroll immediately, on DOM ready, and after iframe loads
-              window.scrollTo(0, 0);
-              document.addEventListener('DOMContentLoaded', function() {
-                window.scrollTo(0, 0);
-              });
-              window.addEventListener('load', function() {
-                window.scrollTo(0, 0);
-              });
-              document.getElementById('quiz-frame').addEventListener('load', function() {
-                window.scrollTo(0, 0);
-              });
-              // Belt-and-suspenders: reset after short delay in case iframe triggers scroll
-              setTimeout(function() { window.scrollTo(0, 0); }, 100);
-              setTimeout(function() { window.scrollTo(0, 0); }, 500);
+              // Prevent iframe from stealing scroll position on load
+              (function() {
+                // Disable browser scroll restoration so it doesn't jump to last position
+                if ('scrollRestoration' in history) {
+                  history.scrollRestoration = 'manual';
+                }
+
+                function resetScroll() {
+                  window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+                  document.documentElement.scrollTop = 0;
+                  document.body.scrollTop = 0;
+                }
+
+                // Fire immediately (inline script runs before paint)
+                resetScroll();
+
+                // Fire on DOMContentLoaded
+                document.addEventListener('DOMContentLoaded', resetScroll);
+
+                // Fire on full page load
+                window.addEventListener('load', resetScroll);
+
+                // Fire when iframe finishes loading (main culprit)
+                var frame = document.getElementById('quiz-frame');
+                if (frame) {
+                  frame.addEventListener('load', function() {
+                    // Small delay to beat any post-load focus events from the iframe
+                    setTimeout(resetScroll, 50);
+                    setTimeout(resetScroll, 200);
+                    setTimeout(resetScroll, 500);
+                  });
+                }
+
+                // Intercept any scroll events that fire in the first 2 seconds
+                var scrollGuardActive = true;
+                window.addEventListener('scroll', function(e) {
+                  if (scrollGuardActive && window.scrollY > 100) {
+                    resetScroll();
+                  }
+                }, { passive: true });
+                setTimeout(function() { scrollGuardActive = false; }, 2000);
+              })();
             </script>
 
             <p class="mt-8 text-sm text-teal-200 font-semibold">No credit pull. Just clarity.</p>
