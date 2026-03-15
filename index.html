@@ -137,11 +137,19 @@
 
             <!-- Quiz Embed -->
             <iframe
+              id="quiz-frame"
               src="https://nocoquiz-suay73hz.manus.space"
               style="border: none; width: 100%; min-height: 700px; border-radius: 12px;"
               title="Homeownership Check"
-              allow="fullscreen">
+              allow="fullscreen"
+              tabindex="-1">
             </iframe>
+            <script>
+              // Prevent iframe from stealing scroll position on load
+              document.getElementById('quiz-frame').addEventListener('load', function() {
+                window.scrollTo(0, 0);
+              });
+            </script>
 
             <p class="mt-8 text-sm text-teal-200 font-semibold">No credit pull. Just clarity.</p>
         </div>
