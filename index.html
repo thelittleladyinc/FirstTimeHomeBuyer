@@ -145,10 +145,24 @@
               tabindex="-1">
             </iframe>
             <script>
-              // Prevent iframe from stealing scroll position on load
+              // Prevent iframe from stealing scroll position
+              if ('scrollRestoration' in history) {
+                history.scrollRestoration = 'manual';
+              }
+              // Reset scroll immediately, on DOM ready, and after iframe loads
+              window.scrollTo(0, 0);
+              document.addEventListener('DOMContentLoaded', function() {
+                window.scrollTo(0, 0);
+              });
+              window.addEventListener('load', function() {
+                window.scrollTo(0, 0);
+              });
               document.getElementById('quiz-frame').addEventListener('load', function() {
                 window.scrollTo(0, 0);
               });
+              // Belt-and-suspenders: reset after short delay in case iframe triggers scroll
+              setTimeout(function() { window.scrollTo(0, 0); }, 100);
+              setTimeout(function() { window.scrollTo(0, 0); }, 500);
             </script>
 
             <p class="mt-8 text-sm text-teal-200 font-semibold">No credit pull. Just clarity.</p>
