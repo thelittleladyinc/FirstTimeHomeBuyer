@@ -19,11 +19,13 @@
     <meta property="og:image:type" content="image/png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Stop renting in Northern Colorado—take the free 60-second homeownership check.">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Free Homeownership Check for Northern Colorado">
     <meta name="twitter:description" content="Discover your path to home ownership with our free 60-second assessment. No credit pull required.">
+    <meta name="twitter:image" content="https://owninnoco.com/og-image.png">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -135,17 +137,24 @@
                 Unlock your path to homeownership in just 60 seconds. This quick check helps me understand your goals and current situation to connect you with the best options available.
             </p>
 
-            <!-- Quiz Embed -->
+            <!-- Quiz Embed (JotForm) -->
             <iframe
-              id="quiz-frame"
-              src="https://nocoquiz-suay73hz.manus.space"
+              id="JotFormIFrame-260648335652057"
+              src="https://form.jotform.com/260648335652057"
               style="border: none; width: 100%; min-height: 700px; border-radius: 12px;"
-              title="Homeownership Check"
-              allow="fullscreen"
+              title="Northern Colorado Homeownership Check"
+              allow="geolocation; microphone; camera; fullscreen"
+              allowtransparency="true"
               tabindex="-1"
               scrolling="no">
             </iframe>
+            <script src="https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js"></script>
             <script>
+              window.jotformEmbedHandler(
+                "iframe[id='JotFormIFrame-260648335652057']",
+                "https://form.jotform.com"
+              );
+
               // Prevent iframe from stealing scroll position on load
               (function() {
                 // Disable browser scroll restoration so it doesn't jump to last position
@@ -169,7 +178,7 @@
                 window.addEventListener('load', resetScroll);
 
                 // Fire when iframe finishes loading (main culprit)
-                var frame = document.getElementById('quiz-frame');
+                var frame = document.getElementById('JotFormIFrame-260648335652057');
                 if (frame) {
                   frame.addEventListener('load', function() {
                     // Small delay to beat any post-load focus events from the iframe
