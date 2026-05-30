@@ -146,14 +146,13 @@
             <iframe
               id="quiz-frame"
               src="https://nocoquiz-suay73hz.manus.space"
-              style="border: none; width: 100%; min-height: 700px; border-radius: 12px;"
+              style="border: none; width: 100%; min-height: 800px; height: 800px; border-radius: 12px;"
               title="Homeownership Check"
               allow="fullscreen"
               tabindex="-1"
-              scrolling="no">
+              scrolling="auto">
             </iframe>
             <script>
-              // Prevent iframe from stealing scroll position on load
               (function() {
                 // Disable browser scroll restoration so it doesn't jump to last position
                 if ('scrollRestoration' in history) {
@@ -166,27 +165,49 @@
                   document.body.scrollTop = 0;
                 }
 
-                // Fire immediately (inline script runs before paint)
                 resetScroll();
-
-                // Fire on DOMContentLoaded
                 document.addEventListener('DOMContentLoaded', resetScroll);
-
-                // Fire on full page load
                 window.addEventListener('load', resetScroll);
 
-                // Fire when iframe finishes loading (main culprit)
                 var frame = document.getElementById('quiz-frame');
+
+                // Auto-resize iframe height when quiz sends its content height via postMessage
+                window.addEventListener('message', function(e) {
+                  if (!frame) return;
+                  // Accept resize messages from the quiz domain
+                  var data = e.data;
+                  if (data && typeof data === 'object' && data.type === 'resize' && data.height) {
+                    var newHeight = Math.max(800, parseInt(data.height) + 60);
+                    frame.style.height = newHeight + 'px';
+                    frame.style.minHeight = newHeight + 'px';
+                  }
+                  // Also handle plain number height messages (common pattern)
+                  if (data && typeof data === 'number' && data > 400) {
+                    var newHeight = Math.max(800, data + 60);
+                    frame.style.height = newHeight + 'px';
+                    frame.style.minHeight = newHeight + 'px';
+                  }
+                });
+
                 if (frame) {
                   frame.addEventListener('load', function() {
-                    // Small delay to beat any post-load focus events from the iframe
                     setTimeout(resetScroll, 50);
                     setTimeout(resetScroll, 200);
                     setTimeout(resetScroll, 500);
+                    // Try to measure iframe content height after load
+                    setTimeout(function() {
+                      try {
+                        var h = frame.contentWindow.document.body.scrollHeight;
+                        if (h && h > 800) {
+                          frame.style.height = (h + 60) + 'px';
+                          frame.style.minHeight = (h + 60) + 'px';
+                        }
+                      } catch(e) { /* cross-origin — rely on postMessage instead */ }
+                    }, 1000);
                   });
                 }
 
-                // Intercept any scroll events that fire in the first 2 seconds
+                // Intercept scroll events in first 2 seconds
                 var scrollGuardActive = true;
                 window.addEventListener('scroll', function(e) {
                   if (scrollGuardActive && window.scrollY > 100) {
