@@ -153,9 +153,101 @@
                 <li>✔ No pressure</li>
                 <li>✔ Personalized guidance</li>
             </ul>
-            <a href="#quiz" class="mt-10 inline-block rounded-lg bg-teal-500 px-10 py-4 text-slate-900 font-black text-lg hover:bg-teal-400 transition-colors shadow-lg hover:shadow-xl">
-                Start My 60‑Second Homeownership Check
+            <!-- PRIMARY CTA: Seminar (high-intent, in-person commitment) -->
+            <a href="#seminar" id="hero-seminar-cta"
+               onclick="if(window.fbq)fbq('track','Lead',{content_name:'Seminar CTA Click - Hero'}); if(window.gtag)gtag('event','seminar_cta_click',{location:'hero'});"
+               class="mt-10 inline-block rounded-lg bg-amber-400 px-10 py-4 text-slate-900 font-black text-lg hover:bg-amber-300 transition-colors shadow-lg hover:shadow-xl border-2 border-amber-300">
+                🏛️ Reserve My Seat — Free First-Time Buyer Seminar
             </a>
+            <div class="mt-3 text-amber-200 text-sm font-medium">
+                Next sessions in Loveland · 60 minutes · lender + Realtor on site · limited to 12 households
+            </div>
+
+            <!-- SECONDARY CTA: Quiz (lower-friction starting point) -->
+            <div class="mt-6 text-center">
+                <a href="#quiz" class="inline-block text-teal-300 underline underline-offset-4 hover:text-teal-200 font-semibold text-base">
+                    Not ready for a seminar? Take the 60-second homeownership check →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEMINAR REGISTRATION SECTION -->
+    <section id="seminar" class="bg-gradient-to-br from-amber-50 to-white py-16 px-6">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-10">
+                <span class="inline-block bg-amber-100 text-amber-900 text-xs font-black uppercase tracking-wider px-3 py-1 rounded-full mb-4">✨ Most Popular Path — Limited Seats</span>
+                <h2 class="text-4xl font-black text-slate-900 sm:text-5xl">First-Time Homebuyer Seminar — Northern Colorado</h2>
+                <p class="mt-4 text-lg text-slate-700 font-medium max-w-2xl mx-auto">
+                    60 minutes. Free. In person. Christine Gwinnup (Realtor) + Weston Gilmore (Lender, NMLS #2053641) answer the questions Google can't:
+                    <strong>what programs you actually qualify for</strong>, <strong>real timeline to ownership</strong>, and <strong>which neighborhoods fit your number</strong>.
+                </p>
+            </div>
+
+            <div class="grid sm:grid-cols-3 gap-4 mb-8 text-center">
+                <div class="bg-white border border-amber-200 rounded-lg p-5">
+                    <div class="text-3xl font-black text-amber-600">$0</div>
+                    <div class="text-sm text-slate-700 font-semibold mt-1">No cost. No credit pull.</div>
+                </div>
+                <div class="bg-white border border-amber-200 rounded-lg p-5">
+                    <div class="text-3xl font-black text-amber-600">12</div>
+                    <div class="text-sm text-slate-700 font-semibold mt-1">Households max — real Q&amp;A time</div>
+                </div>
+                <div class="bg-white border border-amber-200 rounded-lg p-5">
+                    <div class="text-3xl font-black text-amber-600">60 min</div>
+                    <div class="text-sm text-slate-700 font-semibold mt-1">Plus optional 1-on-1 after</div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-xl p-8 border border-slate-200">
+                <h3 class="text-2xl font-black text-slate-900 mb-2">Reserve your seat — next sessions</h3>
+                <p class="text-slate-600 mb-6">Pick a date that works. We'll send a confirmation text and the address (Loveland area).</p>
+                <!-- Lofty / JotForm registration form -->
+                <form id="seminar-form" action="https://www.theboldcollectivehomes.com/api/lead" method="POST"
+                      onsubmit="if(window.fbq)fbq('track','CompleteRegistration',{content_name:'Seminar Registration'}); if(window.gtag)gtag('event','seminar_register',{event_category:'lead'});">
+                    <input type="hidden" name="source" value="owninnoco_seminar">
+                    <input type="hidden" name="funnel" value="FTHB_Seminar">
+                    <input type="hidden" name="lofty_tag" value="Seminar Registrant - FTHB">
+                    <input type="hidden" name="smart_plan" value="Homeownership Path 90-Day">
+                    <div class="grid sm:grid-cols-2 gap-4 mb-4">
+                        <input type="text" name="first_name" required placeholder="First name" class="border border-slate-300 rounded-lg px-4 py-3 focus:outline-none focus:border-amber-500">
+                        <input type="text" name="last_name" required placeholder="Last name" class="border border-slate-300 rounded-lg px-4 py-3 focus:outline-none focus:border-amber-500">
+                        <input type="email" name="email" required placeholder="Email" class="border border-slate-300 rounded-lg px-4 py-3 focus:outline-none focus:border-amber-500">
+                        <input type="tel" name="phone" required placeholder="Mobile phone" class="border border-slate-300 rounded-lg px-4 py-3 focus:outline-none focus:border-amber-500">
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-sm font-bold text-slate-700 mb-2">Pick a session</label>
+                        <select name="session_date" required class="w-full border border-slate-300 rounded-lg px-4 py-3 focus:outline-none focus:border-amber-500">
+                            <option value="">Choose a date …</option>
+                            <option>Saturday, June 13 — 10:00 AM · Loveland</option>
+                            <option>Thursday, June 25 — 6:00 PM · Loveland</option>
+                            <option>Saturday, July 11 — 10:00 AM · Loveland</option>
+                            <option>Thursday, July 23 — 6:00 PM · Loveland</option>
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-sm font-bold text-slate-700 mb-2">Where are you looking?</label>
+                        <select name="area" class="w-full border border-slate-300 rounded-lg px-4 py-3 focus:outline-none focus:border-amber-500">
+                            <option>Loveland</option>
+                            <option>Fort Collins</option>
+                            <option>Greeley</option>
+                            <option>Windsor</option>
+                            <option>Berthoud</option>
+                            <option>Johnstown</option>
+                            <option>Wellington</option>
+                            <option>Not sure yet</option>
+                        </select>
+                    </div>
+                    <label class="flex items-start gap-2 mb-5 text-sm text-slate-700">
+                        <input type="checkbox" name="sms_consent" value="yes" required class="mt-1">
+                        <span>I agree to receive text messages from The Little Lady Sells Homes about the seminar and follow-up. Msg/data rates may apply. Reply STOP to opt out. (Required by Lofty Smart Plan consent gate.)</span>
+                    </label>
+                    <button type="submit" class="w-full bg-amber-500 hover:bg-amber-400 text-slate-900 font-black text-lg py-4 rounded-lg shadow-lg transition-colors">
+                        Reserve My Seat
+                    </button>
+                    <p class="mt-3 text-xs text-slate-500 text-center">Equal Housing Opportunity · LPT Realty LLC · We never sell your info.</p>
+                </form>
+            </div>
         </div>
     </section>
 
