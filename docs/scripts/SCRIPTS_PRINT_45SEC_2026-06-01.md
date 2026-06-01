@@ -3,8 +3,11 @@
 **Date:** June 1, 2026
 **Use:** Bring to your video shoot meeting. Read each script aloud once with a timer before shooting — every script is 95–120 spoken words = 40–45 seconds at natural pace.
 
-**Every script ends with the same close so you can memorize it:**
+**Section A close (seminar / Christine voice):**
 > "Click the link below to schedule. I'm always on your side. Give me — The Little Lady Sells Homes — a call today. 303-709-4262."
+
+**Section B close (RTO + FTHB / Bold Collective team voice):**
+> "Click the link below to schedule. The Bold Collective team at LPT Realty is always on your side. Call us today. 303-709-4262."
 
 **Recurring video refresh is now scheduled** in your account: third Saturday of every third month (Jun · Sep · Dec · Mar) at 9 AM MDT, starting **Saturday, June 20, 2026**. You'll get an in-app reminder to re-shoot, re-upload, and refresh dates.
 
@@ -140,21 +143,23 @@
 
 ---
 
-# SECTION B · 10 RENT-TO-OWN / FIRST-TIME HOMEBUYER VIDEOS (45 sec max each)
+# SECTION B · 10 RENT-TO-OWN / FIRST-TIME HOMEBUYER VIDEOS — BOLD COLLECTIVE TEAM VOICE (45 sec max each)
 
+> **Voice:** The Bold Collective team at LPT Realty — "we," "our team," never first-person Christine. Any team member can shoot these. Christine, Kendra, Miranda, Teeca, or Melissa can be on camera.
 > **Primary CTA on every video:** *"Click the link below to schedule a 15-minute call or take the 2-minute quiz at OwnInNoCo.com."*
+> **Universal close (memorize it):** *"Click the link below to schedule. The Bold Collective team at LPT Realty is always on your side. Call us today. 303-709-4262."*
 
 ---
 
 ## 🎬 B1 · Pattern Interrupt
 **[0–3 sec]**
-"That little voice saying you'll never afford a home in NoCo? Can I be honest — it's wrong."
+"That little voice telling you you'll never afford a home in NoCo? Can we be honest — it's wrong."
 
 **[3–35 sec]**
-"I tour homes in Eaton and LaSalle every week that first-time buyers can actually afford. Rent climbs, the down payment feels impossible, your credit isn't perfect — and you keep scrolling because waiting feels safer than hoping. But hope has a plan attached to it. Affordable doesn't have to be boring. There IS a path — first-time buyer programs, down-payment help, rent-to-own, lenders who'll work with you. You don't have to figure this out alone. That's literally what I do."
+"We're The Bold Collective at LPT Realty in Northern Colorado. Our team tours homes in Eaton and LaSalle every week that first-time buyers can actually afford. Rent climbs, the down payment feels impossible, your credit isn't perfect — so you keep scrolling because waiting feels safer than hoping. But hope has a plan attached to it. There IS a path — first-time buyer programs, down-payment help, rent-to-own, lenders who'll work with you. You don't have to figure it out alone. That's what we do."
 
 **[35–45 sec]**
-"Click the link below to schedule. I'm always on your side. Give me — The Little Lady Sells Homes — a call today. 303-709-4262."
+"Click the link below to schedule. The Bold Collective team at LPT Realty is always on your side. Call us today. 303-709-4262."
 
 ---
 
@@ -163,10 +168,10 @@
 "You do NOT need 20% down to buy in Colorado. You probably don't even need five."
 
 **[3–35 sec]**
-"CHFA grants up to $25,000. Metro DPA in Larimer and Weld. FHA at 3.5%. USDA at zero percent in Eaton, LaSalle, Berthoud, parts of Windsor, even some Greeley. VA at zero if you served. Conventional 97 at 3%. My lender Weston has down-payment-assistance combos that stack — meaning your out-of-pocket is a few thousand dollars instead of forty. Most buyers I sit with had no idea any of this existed. Two-minute quiz at OwnInNoCo.com tells you which ones apply to YOU."
+"Here's what's actually available in NoCo. CHFA grants up to $25,000. Metro DPA in Larimer and Weld. FHA at 3.5%. USDA at zero percent in Eaton, LaSalle, Berthoud, parts of Windsor, even some Greeley addresses. VA at zero if you served. Conventional 97 at 3%. Our lender partner Weston Gilmore has down-payment-assistance combos that stack — your out-of-pocket can be a few thousand dollars instead of forty. Most buyers we sit with had no idea any of this existed. The two-minute quiz at OwnInNoCo.com tells you which apply to YOU."
 
 **[35–45 sec]**
-"Click the link below to schedule. I'm always on your side. Give me — The Little Lady Sells Homes — a call today. 303-709-4262."
+"Click the link below to schedule. The Bold Collective team at LPT Realty is always on your side. Call us today. 303-709-4262."
 
 ---
 
@@ -175,10 +180,10 @@
 "660 credit? You can probably buy this year. 580? Sooner than you think."
 
 **[3–35 sec]**
-"Credit is the most-fixed problem in homebuying. FHA goes to 580 with 3.5% down, 500 with 10%. VA has no hard minimum. If you're at 620 to 660, a quick lender review usually finds 20 to 40 points sitting in plain sight — old paid collections still reporting, utilization spread wrong across cards, an authorized-user trick that bumps you in 30 days. Weston Gilmore — my lender, NMLS 2053641 — does the review for free. No application. No commitment. Just a credit roadmap."
+"Credit is the most-fixable problem in homebuying. FHA goes to 580 credit with 3.5% down, 500 with 10%. VA has no hard minimum. If you're at 620 to 660, a quick lender review usually finds 20 to 40 points sitting in plain sight — old paid collections still reporting, utilization spread wrong, an authorized-user trick that bumps you in 30 days. Our lender partner Weston Gilmore — NMLS 2053641 — does the review for free. No application. No commitment. Just a credit roadmap our team uses with every first-time buyer."
 
 **[35–45 sec]**
-"Click the link below to schedule. I'm always on your side. Give me — The Little Lady Sells Homes — a call today. 303-709-4262."
+"Click the link below to schedule. The Bold Collective team at LPT Realty is always on your side. Call us today. 303-709-4262."
 
 ---
 
@@ -187,58 +192,58 @@
 "Rent-to-own is real in Northern Colorado — and most people get it completely wrong."
 
 **[3–35 sec]**
-"Two flavors. Lease-option — you have the right, not the obligation, to buy at the end of your lease. Lease-purchase — you're committed. The option fee is 1 to 5% of the price, applied to your down payment if you buy. A portion of your rent — usually $200 to $500 — also builds your down payment. Terms run 1 to 3 years. This is the bridge if your credit needs a year, or you need 18 months to save. It's NOT a scam — but the contract matters. Red flags exist."
+"Two flavors. Lease-option — you have the right, not the obligation, to buy at the end of your lease. Lease-purchase — you're committed. The option fee is 1 to 5% of the price, credited to your down payment if you buy. A portion of your rent — usually $200 to $500 — also builds your down payment. Terms run 1 to 3 years. It's the bridge if your credit needs a year or you need 18 months to save. NOT a scam — but the contract matters. Our team reads every clause with you before you sign."
 
 **[35–45 sec]**
-"Click the link below to schedule. I'm always on your side. Give me — The Little Lady Sells Homes — a call today. 303-709-4262."
+"Click the link below to schedule. The Bold Collective team at LPT Realty is always on your side. Call us today. 303-709-4262."
 
 ---
 
 ## 🎬 B5 · Local Proof · Eaton / LaSalle
 **[0–3 sec]**
-"This is the most affordable home I've toured all month — and you'll be surprised by the number."
+"This is the most affordable home our team toured all month — you'll be surprised by the number."
 
 **[3–35 sec]**
-"Three bed, two bath, fenced yard, finished garage, walk to the park. Under $400K — in NoCo, in 2026. They exist. You just have to know where to look and be ready to move when one hits the market — these last 7 to 14 days. The buyers who get them already took the quiz, already talked to my lender Weston, already have their letter ready. The ones who 'started looking' last week — they lose them. Don't be one of those."
+"Three bed, two bath, fenced yard, finished garage, walk to the park. Under $400K — in NoCo, in 2026. They exist. You just have to know where to look and be ready to move when one hits — these last 7 to 14 days max. The buyers who win them already took the quiz, already talked to our lender Weston, already have their pre-approval letter ready. The ones who 'started looking' last week lose them every time. The Bold Collective team finds them. Don't miss the next one."
 
 **[35–45 sec]**
-"Click the link below to schedule. I'm always on your side. Give me — The Little Lady Sells Homes — a call today. 303-709-4262."
+"Click the link below to schedule. The Bold Collective team at LPT Realty is always on your side. Call us today. 303-709-4262."
 
 ---
 
 ## 🎬 B6 · Seminar Invite
 **[0–3 sec]**
-"I'm doing my free First-Time Buyer Seminar this month. 90 minutes, coffee on me, you leave with a plan."
+"Our team is hosting the free First-Time Buyer Seminar this month. 90 minutes, coffee on us, you leave with a plan."
 
 **[3–35 sec]**
-"Here's what we cover. Every loan program available in NoCo and what you actually qualify for. How rent-to-own works if you need a bridge. The exact down-payment-assistance combos that stack. What your real monthly payment looks like at today's rates. The 30, 60, 90-day action plan to get you to the closing table. Weston my lender is there. No pitch at the end — just a written plan. Bring a friend. Limited seats."
+"Here's what we cover. Every loan program available in NoCo and what you actually qualify for. How rent-to-own works if you need a bridge. The exact down-payment-assistance combos that stack. What your real monthly payment looks like at today's rates. The 30, 60, 90-day action plan to get you to the closing table. Our lender partner Weston is in the room. No pitch at the end — just a written plan. Bring a friend. Limited seats."
 
 **[35–45 sec]**
-"Click the link below to schedule. I'm always on your side. Give me — The Little Lady Sells Homes — a call today. 303-709-4262."
+"Click the link below to schedule. The Bold Collective team at LPT Realty is always on your side. Call us today. 303-709-4262."
 
 ---
 
 ## 🎬 B7 · Quiz Resume
 **[0–3 sec]**
-"You started the quiz on my site and didn't finish. Sixty more seconds."
+"You started the quiz on our site and didn't finish. Sixty more seconds."
 
 **[3–35 sec]**
-"I get it — life. But here's why I'm chasing you down. The quiz is the only thing that tells me which programs YOU qualify for, what your real monthly payment would be, and whether rent-to-own or a straight purchase makes more sense for your situation. Without it, I'm guessing — and you don't want me guessing. Sixty seconds. Four more questions. OwnInNoCo.com — your progress is saved. Or text me. I'll walk you through it on your phone."
+"We get it — life. But here's why we're chasing you down. The quiz is the only thing that tells our team which programs YOU qualify for, what your real monthly payment would be, and whether rent-to-own or a straight purchase makes more sense for your situation. Without it, we're guessing — and you don't want us guessing. Sixty seconds. Four more questions. OwnInNoCo.com — your progress is saved. Or text us. We'll walk you through it."
 
 **[35–45 sec]**
-"Click the link below to schedule. I'm always on your side. Give me — The Little Lady Sells Homes — a call today. 303-709-4262."
+"Click the link below to schedule. The Bold Collective team at LPT Realty is always on your side. Call us today. 303-709-4262."
 
 ---
 
 ## 🎬 B8 · Case Study · Maria
 **[0–3 sec]**
-"Meet Maria. Two years ago she said 'maybe in five years.' Eleven months later, she had keys."
+"Meet Maria. Two years ago she said 'maybe in five years.' Eleven months later — our team handed her the keys."
 
 **[3–35 sec]**
-"Maria was renting in Greeley. 642 credit. $4,200 saved. Thought ownership was a 2029 thing. Step one — she took the quiz. She qualified for CHFA plus an FHA combo. Step two — Weston pulled her credit, fixed two reporting errors, jumped her to 689 in 60 days. Step three — six months of intentional saving. Month 11 we wrote on a $385K home in Evans. Closed two weeks later. Her mortgage is $84 less than her rent."
+"Maria was renting in Greeley. 642 credit. $4,200 saved. Thought ownership was a 2029 thing. Step one — she took the quiz on our site. She qualified for CHFA plus an FHA combo. Step two — our lender Weston pulled her credit, fixed two reporting errors, jumped her to 689 in 60 days. Step three — six months of intentional saving while our team watched her target neighborhoods. Month 11, we wrote on a $385K home in Evans. Closed two weeks later. Her mortgage is $84 less than her rent."
 
 **[35–45 sec]**
-"Click the link below to schedule. I'm always on your side. Give me — The Little Lady Sells Homes — a call today. 303-709-4262."
+"Click the link below to schedule. The Bold Collective team at LPT Realty is always on your side. Call us today. 303-709-4262."
 
 **[Burn-in]** *Client story shared with permission. Individual results vary.*
 
@@ -246,25 +251,25 @@
 
 ## 🎬 B9 · Urgency · Market Update
 **[0–3 sec]**
-"Rates dipped this week, inventory just bumped 12%. The window first-time buyers have been waiting for is open right now."
+"Rates dipped this week. NoCo inventory just bumped 12%. The window first-time buyers have been waiting for is open right now."
 
 **[3–35 sec]**
-"May 2026 NoCo update. Loveland median is holding. Fort Collins up 1.4%. Greeley and Evans both have more inventory than March. Rates are in the low 6s for first-time buyers with DPA — lowest since spring 2024. Sellers are negotiating again. I'm seeing $5K to $15K in closing-cost help on the right properties. This is the buying window. By September, with election noise and back-to-school inventory dropping, it tightens up fast. If you've been waiting — stop."
+"May 2026 NoCo update from our team. Loveland median is holding. Fort Collins up 1.4%. Greeley and Evans both have more inventory than March. Rates are in the low 6s for first-time buyers stacked with DPA — lowest since spring 2024. Sellers are negotiating again — we're seeing $5K to $15K in closing-cost help on the right properties. This is the buying window. By September, with election noise and back-to-school inventory dropping, it tightens fast."
 
 **[35–45 sec]**
-"Click the link below to schedule. I'm always on your side. Give me — The Little Lady Sells Homes — a call today. 303-709-4262."
+"Click the link below to schedule. The Bold Collective team at LPT Realty is always on your side. Call us today. 303-709-4262."
 
 ---
 
 ## 🎬 B10 · Direct Ask
 **[0–3 sec]**
-"If you've watched these videos — let's just talk. Fifteen minutes. No pressure, no pitch."
+"If you've watched our videos — let's just talk. Fifteen minutes. No pressure, no pitch."
 
 **[3–35 sec]**
-"You've seen the proof. You know it's possible. The only thing between you and your front door is one conversation where someone listens, runs your real numbers, and tells you the truth about your situation. That's the call. I'll be on it. Weston Gilmore — my lender — will be on it. Fifteen minutes. We tell you what's possible. You decide what's next. That's it. Calendar's right below this video."
+"You've seen the proof. You know it's possible. The only thing between you and your own front door is one conversation where our team listens, runs your real numbers, and tells you the truth about your situation. That's the call. The Bold Collective team will be on it. Weston Gilmore — our lender partner — will be on it. Fifteen minutes. We tell you what's possible. You decide what's next. That's it. Calendar is right below this video."
 
 **[35–45 sec]**
-"Click the link below to schedule. I'm always on your side. Give me — The Little Lady Sells Homes — a call today. 303-709-4262."
+"Click the link below to schedule. The Bold Collective team at LPT Realty is always on your side. Call us today. 303-709-4262."
 
 ---
 
@@ -281,9 +286,11 @@
 | Close | 35–45 sec (verbatim every time) |
 | Vertical Reels cut | 9:16, captions burned in |
 | Horizontal cut | 16:9 for YouTube + landing pages |
-| Lower-third | "Christine Gwinnup · LPT Realty · 303-709-4262" |
+| Lower-third · Section A | "Christine Gwinnup · LPT Realty · 303-709-4262" |
+| Lower-third · Section B | "The Bold Collective · LPT Realty · 303-709-4262" |
 | End frame | OwnInNoCo.com + 303-709-4262 + Equal Housing Opportunity |
-| Disclosure | "Christine Gwinnup, REALTOR · LPT Realty · Equal Housing Opportunity" |
+| Disclosure · Section A | "Christine Gwinnup, REALTOR · LPT Realty · Equal Housing Opportunity" |
+| Disclosure · Section B | "The Bold Collective team · LPT Realty · Equal Housing Opportunity" |
 | Case study burn | "Client story shared with permission. Individual results vary." |
 
 # COMMIT TO GITHUB
