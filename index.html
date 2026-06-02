@@ -207,25 +207,34 @@
             </div>
 
             <div class="bg-white rounded-xl shadow-xl p-8 border border-slate-200 text-center">
-                <h3 class="text-2xl font-black text-slate-900 mb-2">Book your free session</h3>
-                <p class="text-slate-600 mb-6">Pick a time on the calendar that works for you. We'll confirm by text and email — and your details flow straight into our system so we're ready before we talk.</p>
-                <!-- Calendly booking — single sign-up path (Calendly → Make → Lofty) -->
-                <a href="https://calendly.com/thelittleladysellshomes/30min" target="_blank" rel="noopener"
-                   id="calendly-cta"
-                   onclick="if(window.fbq)fbq('track','Lead',{content_name:'Calendly Booking Click'}); if(window.gtag)gtag('event','calendly_booking_click',{event_category:'lead'});"
-                   class="flex items-center justify-center gap-2 w-full bg-amber-500 hover:bg-amber-400 text-slate-900 font-black text-lg py-4 rounded-lg shadow-lg transition-colors">
-                    📅 Schedule My Free 30-Minute Session
+                <h3 class="text-2xl font-black text-slate-900 mb-2">Reserve your seat at the free seminar</h3>
+                <p class="text-slate-600 mb-6">Sign up on Eventbrite — pick the session that works, get your ticket and reminders, and your info drops straight into our system so we're ready for you.</p>
+                <!-- SEMINAR SIGN-UP: Eventbrite registration (Eventbrite -> Make -> Lofty) -->
+                <a href="https://www.eventbrite.com/e/1990836353124" target="_blank" rel="noopener"
+                   id="eventbrite-cta"
+                   onclick="if(window.fbq)fbq('track','Lead',{content_name:'Eventbrite Seminar Signup'}); if(window.gtag)gtag('event','eventbrite_signup_click',{event_category:'lead'});"
+                   class="flex items-center justify-center gap-2 w-full bg-[#d1410c] hover:bg-[#b8380a] text-white font-black text-lg py-4 rounded-lg shadow-lg transition-colors">
+                    🎟️ Sign Up for the Seminar
                 </a>
                 <div class="mt-6 text-left bg-amber-50 border border-amber-200 rounded-lg p-5">
-                    <p class="text-sm font-bold text-slate-700 mb-2">Prefer the free group seminar? Upcoming Loveland sessions (10:00 AM):</p>
+                    <p class="text-sm font-bold text-slate-700 mb-2">Upcoming free seminars in Loveland (10:00 AM):</p>
                     <ul class="text-sm text-slate-700 space-y-1 font-medium">
                         <li>• Saturday, June 20, 2026</li>
                         <li>• Saturday, September 19, 2026</li>
                         <li>• Saturday, December 19, 2026</li>
                         <li>• Saturday, March 20, 2027</li>
                     </ul>
-                    <p class="mt-2 text-xs text-slate-500">Use the button above to grab a spot at any session.</p>
                 </div>
+                <!-- SEPARATE PATH: 1-on-1 call via Calendly (Calendly -> Make -> Lofty) -->
+                <div class="flex items-center gap-3 my-6 text-slate-400 text-sm font-semibold">
+                    <span class="flex-1 border-t border-slate-200"></span>prefer to talk one-on-one first?<span class="flex-1 border-t border-slate-200"></span>
+                </div>
+                <a href="https://calendly.com/thelittleladysellshomes/30min" target="_blank" rel="noopener"
+                   id="calendly-cta"
+                   onclick="if(window.fbq)fbq('track','Lead',{content_name:'Calendly Booking Click'}); if(window.gtag)gtag('event','calendly_booking_click',{event_category:'lead'});"
+                   class="flex items-center justify-center gap-2 w-full bg-white border-2 border-amber-500 text-amber-700 hover:bg-amber-50 font-black text-lg py-4 rounded-lg transition-colors">
+                    📅 Book a Free 30-Minute Call
+                </a>
                 <p class="mt-4 text-xs text-slate-500">Equal Housing Opportunity · LPT Realty LLC · We never sell your info.</p>
             </div>
         </div>
