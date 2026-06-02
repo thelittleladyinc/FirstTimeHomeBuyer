@@ -321,7 +321,7 @@
                  complete Lofty lead (email+phone+Buyer+tags) that enrolls in B1.
                  No JotForm, no webhook, no Make. We control both ends. -->
             <div class="bg-white rounded-2xl shadow-2xl p-6 sm:p-10 border border-[#DEB3A5] text-left">
-              <form id="noco-quiz" novalidate>
+              <form id="noco-quiz" method="POST" action="https://bold-collective-command-center.onrender.com/api/quiz-lead" accept-charset="UTF-8">
                 <div class="grid gap-5 sm:grid-cols-2">
                   <label class="block">
                     <span class="text-sm font-bold text-slate-800">First name *</span>
@@ -383,7 +383,7 @@
                   </label>
                 </div>
                 <label class="flex items-start gap-3 mt-6">
-                  <input type="checkbox" id="noco-consent" checked class="mt-1 h-5 w-5 rounded border-slate-300 text-[#1D3557]">
+                  <input type="checkbox" name="consent" value="yes" id="noco-consent" checked class="mt-1 h-5 w-5 rounded border-slate-300 text-[#1D3557]">
                   <span class="text-xs text-slate-600">I agree to be contacted by The Bold Collective team about my homeownership options by call, text, or email. Message/data rates may apply. We never sell your info.</span>
                 </label>
                 <button type="submit" id="noco-submit" class="mt-6 w-full rounded-lg bg-[#1D3557] px-8 py-4 text-white font-black text-lg hover:bg-[#15273F] transition-colors shadow-lg disabled:opacity-60">
@@ -402,42 +402,16 @@
             </div>
             <p class="mt-4 text-center text-xs text-[#F5F0E8]/70">Equal Housing Opportunity · LPT Realty LLC · We never sell your info.</p>
             <script>
+              // Native form POST does the submitting (bulletproof — always reaches the server).
+              // This only fires marketing pixels on click; it does NOT preventDefault.
               (function () {
-                var RECEIVER = 'https://bold-collective-command-center.onrender.com/api/quiz-lead';
                 var form = document.getElementById('noco-quiz');
                 var btn = document.getElementById('noco-submit');
-                var err = document.getElementById('noco-error');
                 if (!form) return;
-                form.addEventListener('submit', function (e) {
-                  e.preventDefault();
-                  err.classList.add('hidden');
-                  var fd = new FormData(form);
-                  if (!String(fd.get('firstName') || '').trim() || !String(fd.get('email') || '').trim() || !String(fd.get('phone') || '').trim()) {
-                    err.classList.remove('hidden');
-                    return;
-                  }
-                  var consent = document.getElementById('noco-consent');
-                  fd.set('consent', consent && consent.checked ? 'yes' : 'no');
-                  var params = new URLSearchParams();
-                  fd.forEach(function (v, k) { params.append(k, v); });
-                  btn.disabled = true;
-                  btn.textContent = 'Sending…';
-                  // fire tracking
+                form.addEventListener('submit', function () {
                   if (window.fbq) fbq('track', 'Lead', { content_name: 'NoCo Quiz Submit' });
                   if (window.gtag) gtag('event', 'generate_lead', { event_category: 'quiz' });
-                  fetch(RECEIVER, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                    body: params.toString()
-                  }).then(function () {
-                    // show success regardless of CORS read result — the POST is delivered
-                    form.classList.add('hidden');
-                    document.getElementById('noco-success').classList.remove('hidden');
-                  }).catch(function () {
-                    // even on a network/CORS read error the lead usually posts; show success
-                    form.classList.add('hidden');
-                    document.getElementById('noco-success').classList.remove('hidden');
-                  });
+                  if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
                 });
               })();
             </script>
