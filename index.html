@@ -251,26 +251,8 @@
         </div>
     </section>
 
-    <!-- FREE QUIZ: Colorado Rent-to-Own Options JotForm (260648335652057).
-         IMPORTANT: in JotForm -> Settings -> Integrations -> Webhooks, add the Make webhook URL
-         so submissions flow JotForm -> Make -> Lofty. -->
-    <section class="bg-[#F5F0E8] py-16 px-6">
-        <div class="max-w-3xl mx-auto">
-            <div class="text-center mb-8">
-                <span class="inline-block bg-[#1D3557] text-[#F5F0E8] text-xs font-black uppercase tracking-wider px-3 py-1 rounded-full mb-4">⚡ 60-Second Free Check</span>
-                <h2 class="text-4xl font-black text-slate-900 sm:text-5xl">Take the Free Homeownership Quiz</h2>
-                <p class="mt-4 text-lg text-slate-700 font-medium">Answer a few quick questions and get your personalized Northern Colorado path to ownership — no cost, no credit pull.</p>
-            </div>
-            <div class="bg-white rounded-xl shadow-xl p-2 sm:p-4 border border-[#DEB3A5]">
-                <iframe id="JotFormIFrame-260648335652057" title="Colorado Rent-to-Own Options"
-                    src="https://form.jotform.com/260648335652057"
-                    style="width:100%;min-height:760px;border:none;border-radius:0.5rem;"
-                    allow="geolocation; microphone; camera; fullscreen"
-                    onload="if(window.fbq)fbq('track','Lead',{content_name:'Quiz View'}); if(window.gtag)gtag('event','quiz_view',{event_category:'lead'});"></iframe>
-            </div>
-            <p class="mt-4 text-center text-xs text-slate-500">Equal Housing Opportunity · LPT Realty LLC · We never sell your info.</p>
-        </div>
-    </section>
+    <!-- (Removed duplicate JotForm section — the single quiz now lives in the #quiz
+         section below, which is where every CTA on the site points.) -->
 
     <!-- WHY SECTION -->
     <section class="bg-white py-16 px-6">
@@ -335,16 +317,21 @@
                 Unlock your path to homeownership in just 60 seconds. This quick check helps me understand your goals and current situation to connect you with the best options available.
             </p>
 
-            <!-- Quiz Embed -->
-            <iframe
-              id="quiz-frame"
-              src="https://firsttimehomebuyer.onrender.com"
-              style="border: none; width: 100%; min-height: 800px; height: 800px; border-radius: 12px;"
-              title="Homeownership Check"
-              allow="fullscreen"
-              tabindex="-1"
-              scrolling="auto">
-            </iframe>
+            <!-- Quiz Embed — JotForm "Colorado Rent-to-Own Options" (260648335652057).
+                 This is the ONLY quiz on the site and the one all CTAs point to (#quiz).
+                 Submissions flow: JotForm -> webhook -> command-center /api/quiz-lead -> Lofty (B1). -->
+            <div class="bg-white rounded-xl shadow-2xl p-2 sm:p-4 border border-[#DEB3A5] text-left">
+              <iframe
+                id="quiz-frame"
+                title="Colorado Rent-to-Own Options"
+                src="https://form.jotform.com/260648335652057"
+                style="border: none; width: 100%; min-height: 760px; border-radius: 0.5rem;"
+                allow="geolocation; microphone; camera; fullscreen"
+                scrolling="auto"
+                onload="if(window.fbq)fbq('track','Lead',{content_name:'Quiz View'}); if(window.gtag)gtag('event','quiz_view',{event_category:'lead'});">
+              </iframe>
+            </div>
+            <p class="mt-4 text-center text-xs text-[#F5F0E8]/70">Equal Housing Opportunity · LPT Realty LLC · We never sell your info.</p>
             <script>
               (function() {
                 // Disable browser scroll restoration so it doesn't jump to last position
