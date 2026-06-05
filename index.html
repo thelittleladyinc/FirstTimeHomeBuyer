@@ -402,16 +402,60 @@
             </div>
             <p class="mt-4 text-center text-xs text-[#F5F0E8]/70">Equal Housing Opportunity · LPT Realty LLC · We never sell your info.</p>
             <script>
-              // Native form POST does the submitting (bulletproof — always reaches the server).
-              // This only fires marketing pixels on click; it does NOT preventDefault.
+              // Submit to the command-center receiver via fetch so we can show an in-page
+              // success message and keep the lead on owninnoco.com.
+              // SAFETY: on ANY failure (network error, CORS block, timeout, or a non-OK
+              // response) we fall back to a normal full-page form POST — the lead is never
+              // silently lost. The native submit always reaches the command center, exactly
+              // like before this change.
               (function () {
                 var form = document.getElementById('noco-quiz');
                 var btn = document.getElementById('noco-submit');
+                var success = document.getElementById('noco-success');
                 if (!form) return;
-                form.addEventListener('submit', function () {
+
+                var submitting = false;
+
+                form.addEventListener('submit', function (e) {
+                  // Browser native "required" validation runs first; if invalid the submit
+                  // event never fires, so reaching here means every required field is filled.
+                  if (submitting) return;            // guard against double submission
+                  e.preventDefault();
+                  submitting = true;
+
+                  // Marketing pixels (fire once, on intent to submit).
                   if (window.fbq) fbq('track', 'Lead', { content_name: 'NoCo Quiz Submit' });
                   if (window.gtag) gtag('event', 'generate_lead', { event_category: 'quiz' });
                   if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
+
+                  function showSuccess() {
+                    if (!success) { return; }
+                    form.classList.add('hidden');
+                    success.classList.remove('hidden');
+                    try { success.scrollIntoView({ behavior: 'smooth', block: 'center' }); } catch (err) {}
+                  }
+
+                  // Bulletproof fallback: submit the real form (full-page POST) so the lead
+                  // still reaches the command center even if fetch was blocked or failed.
+                  function fallbackNativePost() { form.submit(); }
+
+                  // Hard timeout so a cold-starting server can't hang the button forever.
+                  var controller = ('AbortController' in window) ? new AbortController() : null;
+                  var timer = setTimeout(function () { if (controller) controller.abort(); }, 20000);
+
+                  fetch(form.action, {
+                    method: 'POST',
+                    body: new URLSearchParams(new FormData(form)),
+                    headers: { 'Accept': 'application/json' },
+                    signal: controller ? controller.signal : undefined
+                  }).then(function (res) {
+                    clearTimeout(timer);
+                    if (res && res.ok) { showSuccess(); }
+                    else { fallbackNativePost(); }   // reachable but not OK -> native retry
+                  }).catch(function () {
+                    clearTimeout(timer);
+                    fallbackNativePost();             // network/CORS/timeout -> native retry
+                  });
                 });
               })();
             </script>
