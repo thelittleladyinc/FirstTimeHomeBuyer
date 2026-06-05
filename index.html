@@ -251,26 +251,8 @@
         </div>
     </section>
 
-    <!-- FREE QUIZ: Colorado Rent-to-Own Options JotForm (260648335652057).
-         IMPORTANT: in JotForm -> Settings -> Integrations -> Webhooks, add the Make webhook URL
-         so submissions flow JotForm -> Make -> Lofty. -->
-    <section class="bg-[#F5F0E8] py-16 px-6">
-        <div class="max-w-3xl mx-auto">
-            <div class="text-center mb-8">
-                <span class="inline-block bg-[#1D3557] text-[#F5F0E8] text-xs font-black uppercase tracking-wider px-3 py-1 rounded-full mb-4">⚡ 60-Second Free Check</span>
-                <h2 class="text-4xl font-black text-slate-900 sm:text-5xl">Take the Free Homeownership Quiz</h2>
-                <p class="mt-4 text-lg text-slate-700 font-medium">Answer a few quick questions and get your personalized Northern Colorado path to ownership — no cost, no credit pull.</p>
-            </div>
-            <div class="bg-white rounded-xl shadow-xl p-2 sm:p-4 border border-[#DEB3A5]">
-                <iframe id="JotFormIFrame-260648335652057" title="Colorado Rent-to-Own Options"
-                    src="https://form.jotform.com/260648335652057"
-                    style="width:100%;min-height:760px;border:none;border-radius:0.5rem;"
-                    allow="geolocation; microphone; camera; fullscreen"
-                    onload="if(window.fbq)fbq('track','Lead',{content_name:'Quiz View'}); if(window.gtag)gtag('event','quiz_view',{event_category:'lead'});"></iframe>
-            </div>
-            <p class="mt-4 text-center text-xs text-slate-500">Equal Housing Opportunity · LPT Realty LLC · We never sell your info.</p>
-        </div>
-    </section>
+    <!-- (Removed duplicate JotForm section — the single quiz now lives in the #quiz
+         section below, which is where every CTA on the site points.) -->
 
     <!-- WHY SECTION -->
     <section class="bg-white py-16 px-6">
@@ -335,79 +317,102 @@
                 Unlock your path to homeownership in just 60 seconds. This quick check helps me understand your goals and current situation to connect you with the best options available.
             </p>
 
-            <!-- Quiz Embed (JotForm) -->
-            <iframe
-              id="JotFormIFrame-260648335652057"
-              src="https://form.jotform.com/260648335652057"
-              style="border: none; width: 100%; min-height: 800px; height: 800px; border-radius: 12px;"
-              title="Colorado Rent-to-Own Options"
-              allow="fullscreen"
-              tabindex="-1"
-              scrolling="auto">
-            </iframe>
+            <!-- NATIVE QUIZ — posts DIRECTLY to the command-center receiver, which creates a
+                 complete Lofty lead (email+phone+Buyer+tags) that enrolls in B1.
+                 No JotForm, no webhook, no Make. We control both ends. -->
+            <div class="bg-white rounded-2xl shadow-2xl p-6 sm:p-10 border border-[#DEB3A5] text-left">
+              <form id="noco-quiz" method="POST" action="https://bold-collective-command-center.onrender.com/api/quiz-lead" accept-charset="UTF-8">
+                <div class="grid gap-5 sm:grid-cols-2">
+                  <label class="block">
+                    <span class="text-sm font-bold text-slate-800">First name *</span>
+                    <input name="firstName" required class="mt-1 w-full rounded-lg border border-slate-300 px-4 py-3 text-slate-900 focus:border-[#1D3557] focus:ring-2 focus:ring-[#1D3557]/30 outline-none" placeholder="Jane">
+                  </label>
+                  <label class="block">
+                    <span class="text-sm font-bold text-slate-800">Last name *</span>
+                    <input name="lastName" required class="mt-1 w-full rounded-lg border border-slate-300 px-4 py-3 text-slate-900 focus:border-[#1D3557] focus:ring-2 focus:ring-[#1D3557]/30 outline-none" placeholder="Smith">
+                  </label>
+                  <label class="block">
+                    <span class="text-sm font-bold text-slate-800">Email *</span>
+                    <input name="email" type="email" required class="mt-1 w-full rounded-lg border border-slate-300 px-4 py-3 text-slate-900 focus:border-[#1D3557] focus:ring-2 focus:ring-[#1D3557]/30 outline-none" placeholder="you@email.com">
+                  </label>
+                  <label class="block">
+                    <span class="text-sm font-bold text-slate-800">Phone *</span>
+                    <input name="phone" type="tel" required class="mt-1 w-full rounded-lg border border-slate-300 px-4 py-3 text-slate-900 focus:border-[#1D3557] focus:ring-2 focus:ring-[#1D3557]/30 outline-none" placeholder="(970) 555-0123">
+                  </label>
+                  <label class="block sm:col-span-2">
+                    <span class="text-sm font-bold text-slate-800">How soon are you hoping to make a move?</span>
+                    <select name="timeline" class="mt-1 w-full rounded-lg border border-slate-300 px-4 py-3 text-slate-900 bg-white focus:border-[#1D3557] focus:ring-2 focus:ring-[#1D3557]/30 outline-none">
+                      <option value="ASAP">ASAP</option>
+                      <option value="3-6 months">3–6 months</option>
+                      <option value="6-12 months">6–12 months</option>
+                      <option value="Just exploring">Just exploring for now</option>
+                    </select>
+                  </label>
+                  <label class="block">
+                    <span class="text-sm font-bold text-slate-800">Do you currently own or rent?</span>
+                    <select name="ownHome" class="mt-1 w-full rounded-lg border border-slate-300 px-4 py-3 text-slate-900 bg-white focus:border-[#1D3557] focus:ring-2 focus:ring-[#1D3557]/30 outline-none">
+                      <option value="No - I rent">I currently rent</option>
+                      <option value="Yes - I own">I own my home</option>
+                    </select>
+                  </label>
+                  <label class="block">
+                    <span class="text-sm font-bold text-slate-800">Veteran or active military?</span>
+                    <select name="veteran" class="mt-1 w-full rounded-lg border border-slate-300 px-4 py-3 text-slate-900 bg-white focus:border-[#1D3557] focus:ring-2 focus:ring-[#1D3557]/30 outline-none">
+                      <option value="No">No</option>
+                      <option value="Yes">Yes</option>
+                    </select>
+                  </label>
+                  <label class="block">
+                    <span class="text-sm font-bold text-slate-800">How's your credit?</span>
+                    <select name="credit" class="mt-1 w-full rounded-lg border border-slate-300 px-4 py-3 text-slate-900 bg-white focus:border-[#1D3557] focus:ring-2 focus:ring-[#1D3557]/30 outline-none">
+                      <option value="Excellent (720+)">Excellent (720+)</option>
+                      <option value="Good (660-719)">Good (660–719)</option>
+                      <option value="Fair (620-659)">Fair (620–659)</option>
+                      <option value="Needs improvement (below 620)">Needs improvement (below 620)</option>
+                      <option value="Not sure">Not sure</option>
+                    </select>
+                  </label>
+                  <label class="block">
+                    <span class="text-sm font-bold text-slate-800">Saved for a down payment?</span>
+                    <select name="downPayment" class="mt-1 w-full rounded-lg border border-slate-300 px-4 py-3 text-slate-900 bg-white focus:border-[#1D3557] focus:ring-2 focus:ring-[#1D3557]/30 outline-none">
+                      <option value="Less than $1,000">Less than $1,000</option>
+                      <option value="$1,000-$5,000">$1,000–$5,000</option>
+                      <option value="$5,000-$10,000">$5,000–$10,000</option>
+                      <option value="More than $10,000">More than $10,000</option>
+                    </select>
+                  </label>
+                </div>
+                <label class="flex items-start gap-3 mt-6">
+                  <input type="checkbox" name="consent" value="yes" id="noco-consent" checked class="mt-1 h-5 w-5 rounded border-slate-300 text-[#1D3557]">
+                  <span class="text-xs text-slate-600">I agree to be contacted by The Bold Collective team about my homeownership options by call, text, or email. Message/data rates may apply. We never sell your info.</span>
+                </label>
+                <button type="submit" id="noco-submit" class="mt-6 w-full rounded-lg bg-[#1D3557] px-8 py-4 text-white font-black text-lg hover:bg-[#15273F] transition-colors shadow-lg disabled:opacity-60">
+                  Get My Free Roadmap →
+                </button>
+                <p id="noco-error" class="mt-3 text-sm text-red-600 font-semibold hidden">Please fill in your name, email, and phone.</p>
+              </form>
+
+              <!-- success state -->
+              <div id="noco-success" class="hidden text-center py-10">
+                <div class="text-5xl mb-4">🎉</div>
+                <h3 class="text-2xl font-black text-slate-900">You're all set!</h3>
+                <p class="mt-3 text-slate-700 font-medium">Thanks — your personalized Northern Colorado homeownership roadmap is on its way. Christine and the Bold Collective team will reach out shortly with your next step.</p>
+                <a href="https://calendly.com/thelittleladysellshomes/30min" class="inline-block mt-6 rounded-lg bg-[#1D3557] px-8 py-4 text-white font-black hover:bg-[#15273F] transition-colors shadow-lg">Want to talk sooner? Book a quick call →</a>
+              </div>
+            </div>
+            <p class="mt-4 text-center text-xs text-[#F5F0E8]/70">Equal Housing Opportunity · LPT Realty LLC · We never sell your info.</p>
             <script>
-              (function() {
-                // Disable browser scroll restoration so it doesn't jump to last position
-                if ('scrollRestoration' in history) {
-                  history.scrollRestoration = 'manual';
-                }
-
-                function resetScroll() {
-                  window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-                  document.documentElement.scrollTop = 0;
-                  document.body.scrollTop = 0;
-                }
-
-                resetScroll();
-                document.addEventListener('DOMContentLoaded', resetScroll);
-                window.addEventListener('load', resetScroll);
-
-                var frame = document.getElementById('quiz-frame');
-
-                // Auto-resize iframe height when quiz sends its content height via postMessage
-                window.addEventListener('message', function(e) {
-                  if (!frame) return;
-                  // Accept resize messages from the quiz domain
-                  var data = e.data;
-                  if (data && typeof data === 'object' && data.type === 'resize' && data.height) {
-                    var newHeight = Math.max(800, parseInt(data.height) + 60);
-                    frame.style.height = newHeight + 'px';
-                    frame.style.minHeight = newHeight + 'px';
-                  }
-                  // Also handle plain number height messages (common pattern)
-                  if (data && typeof data === 'number' && data > 400) {
-                    var newHeight = Math.max(800, data + 60);
-                    frame.style.height = newHeight + 'px';
-                    frame.style.minHeight = newHeight + 'px';
-                  }
+              // Native form POST does the submitting (bulletproof — always reaches the server).
+              // This only fires marketing pixels on click; it does NOT preventDefault.
+              (function () {
+                var form = document.getElementById('noco-quiz');
+                var btn = document.getElementById('noco-submit');
+                if (!form) return;
+                form.addEventListener('submit', function () {
+                  if (window.fbq) fbq('track', 'Lead', { content_name: 'NoCo Quiz Submit' });
+                  if (window.gtag) gtag('event', 'generate_lead', { event_category: 'quiz' });
+                  if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
                 });
-
-                if (frame) {
-                  frame.addEventListener('load', function() {
-                    setTimeout(resetScroll, 50);
-                    setTimeout(resetScroll, 200);
-                    setTimeout(resetScroll, 500);
-                    // Try to measure iframe content height after load
-                    setTimeout(function() {
-                      try {
-                        var h = frame.contentWindow.document.body.scrollHeight;
-                        if (h && h > 800) {
-                          frame.style.height = (h + 60) + 'px';
-                          frame.style.minHeight = (h + 60) + 'px';
-                        }
-                      } catch(e) { /* cross-origin — rely on postMessage instead */ }
-                    }, 1000);
-                  });
-                }
-
-                // Intercept scroll events in first 2 seconds
-                var scrollGuardActive = true;
-                window.addEventListener('scroll', function(e) {
-                  if (scrollGuardActive && window.scrollY > 100) {
-                    resetScroll();
-                  }
-                }, { passive: true });
-                setTimeout(function() { scrollGuardActive = false; }, 2000);
               })();
             </script>
 
@@ -455,6 +460,7 @@
             Serving Loveland • Fort Collins • Greeley • Windsor • Berthoud • Johnstown • Severance • Eaton • Northern Colorado
         </p>
         <p class="mt-6 space-x-4">
+            <a href="/blog/" class="hover:text-[#DEB3A5] transition-colors font-medium">Blog</a> |
             <a href="/privacy-policy" class="hover:text-[#DEB3A5] transition-colors font-medium">Privacy Policy</a> |
             <a href="/disclaimer" class="hover:text-[#DEB3A5] transition-colors font-medium">Disclaimer</a> |
             <a href="https://www.thelittleladysellshomes.com" class="hover:text-[#DEB3A5] transition-colors font-medium">Visit Main Website</a>
