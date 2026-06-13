@@ -1,24 +1,23 @@
 # robots.txt for owninnoco.com
 # The Bold Collective - Northern Colorado first-time homebuyer resources
 
+# Default: all crawlers welcome
 User-agent: *
 Allow: /
-
-# Block Netlify-internal preview/admin paths
 Disallow: /.netlify/
 Disallow: /admin/
 
-# AI training crawlers — explicitly allow (we WANT to appear in AI answers)
+# AI search engines — explicitly welcomed (we WANT to appear in AI answers)
 User-agent: GPTBot
 Allow: /
 
 User-agent: ClaudeBot
 Allow: /
 
-User-agent: Google-Extended
+User-agent: PerplexityBot
 Allow: /
 
-User-agent: PerplexityBot
+User-agent: Google-Extended
 Allow: /
 
 User-agent: CCBot
