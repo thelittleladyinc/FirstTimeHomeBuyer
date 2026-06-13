@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/0.9">
+
+  <!-- Homepage: NoCo first-time buyer hub -->
+  <url>
+    <loc>https://owninnoco.com/</loc>
+    <lastmod>2026-06-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://owninnoco.com/assets/bold-team.jpg</image:loc>
+      <image:title>The Bold Collective - Northern Colorado first-time homebuyer team</image:title>
+    </image:image>
+  </url>
+
+  <!-- Quiz: primary lead-gen path -->
+  <url>
+    <loc>https://owninnoco.com/quiz</loc>
+    <lastmod>2026-06-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Blog hub -->
+  <url>
+    <loc>https://owninnoco.com/blog/</loc>
+    <lastmod>2026-06-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Featured article: June 2026 first-time buyers -->
+  <url>
+    <loc>https://owninnoco.com/blog/june-2026-noco-first-time-buyers/</loc>
+    <lastmod>2026-06-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+</urlset>
