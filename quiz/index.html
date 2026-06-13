@@ -8,6 +8,93 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+    <!-- Google Analytics GA4 - Northern Colorado Homes Rollup (OwnInNoCo via hostname) (G-2SZRP8P0GS) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2SZRP8P0GS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-2SZRP8P0GS', {
+            'page_title': 'Quiz - NoCo Homeownership Score',
+            'page_path': '/quiz'
+        });
+    </script>
+
+    <!-- Meta Pixel - 785995940287531 -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '785995940287531');
+    fbq('track', 'PageView');
+    fbq('track', 'ViewContent', {content_name: 'NoCo Homeownership Quiz', content_category: 'lead-gen-quiz'});
+    </script>
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=785995940287531&ev=PageView&noscript=1"/></noscript>
+
+    <!-- Quiz Event Tracking Bridge -->
+    <script>
+    /* Listens for custom events the React app can dispatch, OR observes the DOM
+       for natural quiz progression. Either way GA4 + Meta get the events. */
+    (function(){
+        function safeGtag(name, params){ try { if(window.gtag) window.gtag('event', name, params || {}); } catch(e){} }
+        function safeFbq(name, params){ try { if(window.fbq) window.fbq('track', name, params || {}); } catch(e){} }
+        function safeFbqCustom(name, params){ try { if(window.fbq) window.fbq('trackCustom', name, params || {}); } catch(e){} }
+
+        // 1) Custom event bridge — React app can call:
+        //    window.dispatchEvent(new CustomEvent('quiz:start'))
+        //    window.dispatchEvent(new CustomEvent('quiz:step', {detail:{step:3}}))
+        //    window.dispatchEvent(new CustomEvent('quiz:complete', {detail:{score:78,type:'rent-to-own'}}))
+        //    window.dispatchEvent(new CustomEvent('quiz:lead', {detail:{email:'...'}}))
+        window.addEventListener('quiz:start', function(e){
+            safeGtag('quiz_start', e.detail || {});
+            safeFbqCustom('QuizStart', e.detail || {});
+        });
+        window.addEventListener('quiz:step', function(e){
+            safeGtag('quiz_step', e.detail || {});
+        });
+        window.addEventListener('quiz:complete', function(e){
+            safeGtag('quiz_complete', e.detail || {});
+            safeFbq('CompleteRegistration', e.detail || {});
+        });
+        window.addEventListener('quiz:lead', function(e){
+            safeGtag('generate_lead', Object.assign({value: 25, currency: 'USD'}, e.detail || {}));
+            safeFbq('Lead', Object.assign({value: 25, currency: 'USD'}, e.detail || {}));
+        });
+
+        // 2) Fallback DOM observer — fires quiz_start the first time the user
+        //    interacts with any button/input inside #root
+        var started = false;
+        function markStart(){
+            if(started) return; started = true;
+            safeGtag('quiz_start', {trigger: 'dom-interaction'});
+            safeFbqCustom('QuizStart', {trigger: 'dom-interaction'});
+        }
+        document.addEventListener('click', function(ev){
+            var root = document.getElementById('root');
+            if(root && root.contains(ev.target)) markStart();
+        }, true);
+
+        // 3) Calendly bookings = strong lead signal (Calendly embed fires postMessage)
+        window.addEventListener('message', function(e){
+            if(!e || !e.data) return;
+            var d = e.data;
+            if(typeof d === 'object' && d.event && String(d.event).indexOf('calendly') === 0){
+                if(d.event === 'calendly.event_scheduled'){
+                    safeGtag('generate_lead', {value: 100, currency: 'USD', source: 'calendly_booking'});
+                    safeFbq('Schedule', {value: 100, currency: 'USD'});
+                    safeFbq('Lead', {value: 100, currency: 'USD', content_name: 'calendly_booking'});
+                }
+            }
+        });
+    })();
+    </script>
+
     <script type="module" crossorigin src="/assets/index-uCNrxW5I.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-DeBP2l4G.css">
   <meta property="og:type" content="website">
