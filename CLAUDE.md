@@ -6,7 +6,6 @@
 ## WHO YOU ARE WORKING FOR
 - **Christine Gwinnup** — The Little Lady Sells Homes, REALTOR®, LPT Realty
 - **Email:** thelittleladyinc@gmail.com | **Phone:** 303-709-4262
-- **Kendra Bajcar** — Co-lead, Signature Property Collection | 970-571-0525
 - **Weston Gilmore** — Preferred lender | 720-605-4757 | NMLS #2053641
 
 ---
@@ -52,10 +51,19 @@
 ## THE 4 WEBSITES (Context — Don't Confuse)
 | Site | Abbrev | Platform | Purpose |
 |------|--------|----------|---------|
-| thelittleladysellshomes.com | TLLSH | iHouseweb | Christine's primary brand |
-| signaturepropertycollection.com | Signature | AgentFire | Luxury (Christine + Kendra) |
-| boldcollectivehomes.com | Bold | Lofty | Team / first-time buyers |
-| owninnoco.com | OwnInNoCo | Lofty widget | **THIS REPO** — Rent-to-own funnel |
+| thelittleladysellshomes.com | TLLSH | Netlify (own engine) | Christine's primary brand — ALL informational/program content lives there |
+| signaturepropertycollection.com | Signature | Netlify (own engine) | Luxury ($950K+) |
+| owninnoco.com | OwnInNoCo | Netlify | **THIS REPO** — the quiz/score + rent-to-own funnel |
+
+**boldcollectivehomes.com is RETIRED (2026-08).** Do not link to it, do not
+reference "The Bold Collective team" in site copy (existing review QUOTES that
+mention it stay verbatim — reviews are quotes, not copy).
+
+**Title division (2026-08-19, Christine-approved):** this site targets
+quiz/score intent ("am I ready to buy", the NoCo Homeownership Score). It must
+NOT title-target "first-time buyer programs" or "rent to own homes in ..." —
+those informational queries belong to thelittleladysellshomes.com
+(/first-time-homebuyer, /rent-to-own). Link to those pages instead.
 
 ---
 
