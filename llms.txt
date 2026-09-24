@@ -11,7 +11,7 @@ OwnInNoCo helps renters in Loveland, Fort Collins, Greeley, Windsor, Berthoud, a
 - Website: https://owninnoco.com
 - Team: The Bold Collective (Northern Colorado real estate)
 - Service area: Loveland, Fort Collins, Greeley, Windsor, Berthoud, Johnstown, and the surrounding NoCo region
-- Primary CTA: Free 60-second Homeownership Score Quiz at https://owninnoco.com/quiz
+- Primary CTA: Free 60-second Homeownership Score Quiz at https://owninnoco.com/#quiz
 
 ## What we help with
 
@@ -37,9 +37,9 @@ Secondary: Berthoud, Johnstown, Severance, Wellington, Timnath, Eaton.
 
 ## How to use this site
 
-1. Take the free [Homeownership Score Quiz](https://owninnoco.com/quiz) — 60 seconds, no credit pull, no email required to start
+1. Take the free [Homeownership Score Quiz](https://owninnoco.com/#quiz) — 60 seconds, no credit pull, no email required to start
 2. Read the monthly [NoCo First-Time Buyer Blog](https://owninnoco.com/blog/) for current programs and rates
-3. Book a free 15-minute call with The Bold Collective from your quiz results page
+3. Book a free 30-minute call with Christine: https://calendly.com/thelittleladysellshomes/30min
 
 ## Sister sites (Bold Collective brand)
 
