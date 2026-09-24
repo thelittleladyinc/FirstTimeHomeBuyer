@@ -167,12 +167,12 @@
             <!-- DUAL PRIMARY CTAs: Quiz + Seminar, equally prominent -->
             <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center items-stretch">
                 <a href="#quiz" id="hero-quiz-cta"
-                   onclick="if(window.fbq)fbq('track','Lead',{content_name:'Quiz CTA Click - Hero'}); if(window.gtag)gtag('event','quiz_cta_click',{location:'hero'});"
+                   onclick="if(window.fbq)fbq('trackCustom','CTAClick',{cta:'Quiz CTA Click - Hero',page:location.pathname}); if(window.gtag)gtag('event','quiz_cta_click',{location:'hero'});"
                    class="flex-1 sm:max-w-xs inline-flex items-center justify-center text-center rounded-lg bg-[#1D3557] px-8 py-4 text-[#F5F0E8] font-black text-lg hover:bg-[#15273F] transition-colors shadow-lg hover:shadow-xl border-2 border-[#1D3557]">
                     📝 Take the Free 60-Second Quiz
                 </a>
                 <a href="#seminar" id="hero-seminar-cta"
-                   onclick="if(window.fbq)fbq('track','Lead',{content_name:'Seminar CTA Click - Hero'}); if(window.gtag)gtag('event','seminar_cta_click',{location:'hero'});"
+                   onclick="if(window.fbq)fbq('trackCustom','CTAClick',{cta:'Seminar CTA Click - Hero',page:location.pathname}); if(window.gtag)gtag('event','seminar_cta_click',{location:'hero'});"
                    class="flex-1 sm:max-w-xs inline-flex items-center justify-center text-center rounded-lg bg-[#F5F0E8] px-8 py-4 text-[#0A0A0A] font-black text-lg hover:bg-white transition-colors shadow-lg hover:shadow-xl border-2 border-[#F5F0E8]">
                     🏛️ Reserve My Seminar Seat
                 </a>
@@ -182,7 +182,7 @@
             </div>
             <div class="mt-3 text-center">
                 <a href="https://calendly.com/thelittleladysellshomes/30min" target="_blank" rel="noopener"
-                   onclick="if(window.fbq)fbq('track','Lead',{content_name:'Calendly Booking Click - Hero'}); if(window.gtag)gtag('event','calendly_booking_click',{location:'hero'});"
+                   onclick="if(window.fbq)fbq('trackCustom','CTAClick',{cta:'Calendly Booking Click - Hero',page:location.pathname}); if(window.gtag)gtag('event','calendly_booking_click',{location:'hero'});"
                    class="inline-block text-[#A7A9AC] underline underline-offset-4 hover:text-[#F5F0E8] font-semibold text-base">
                     📅 Or book a free 30-minute call →
                 </a>
@@ -223,7 +223,7 @@
                 <!-- SEMINAR SIGN-UP: Eventbrite registration (Eventbrite -> Make -> Lofty) -->
                 <a href="https://www.eventbrite.com/e/1990836353124" target="_blank" rel="noopener"
                    id="eventbrite-cta"
-                   onclick="if(window.fbq)fbq('track','Lead',{content_name:'Eventbrite Seminar Signup'}); if(window.gtag)gtag('event','eventbrite_signup_click',{event_category:'lead'});"
+                   onclick="if(window.fbq)fbq('trackCustom','CTAClick',{cta:'Eventbrite Seminar Signup',page:location.pathname}); if(window.gtag)gtag('event','eventbrite_signup_click',{event_category:'lead'});"
                    class="flex items-center justify-center gap-2 w-full bg-[#1D3557] hover:bg-[#15273F] text-[#F5F0E8] font-black text-lg py-4 rounded-lg shadow-lg transition-colors">
                     🎟️ Sign Up for the Seminar
                 </a>
@@ -242,7 +242,7 @@
                 </div>
                 <a href="https://calendly.com/thelittleladysellshomes/30min" target="_blank" rel="noopener"
                    id="calendly-cta"
-                   onclick="if(window.fbq)fbq('track','Lead',{content_name:'Calendly Booking Click'}); if(window.gtag)gtag('event','calendly_booking_click',{event_category:'lead'});"
+                   onclick="if(window.fbq)fbq('trackCustom','CTAClick',{cta:'Calendly Booking Click',page:location.pathname}); if(window.gtag)gtag('event','calendly_booking_click',{event_category:'lead'});"
                    class="flex items-center justify-center gap-2 w-full bg-white border-2 border-[#1D3557] text-[#1D3557] hover:bg-[#F5F0E8] font-black text-lg py-4 rounded-lg transition-colors">
                     📅 Book a Free 30-Minute Call
                 </a>
@@ -423,10 +423,21 @@
                   e.preventDefault();
                   submitting = true;
 
-                  // Marketing pixels (fire once, on intent to submit).
-                  if (window.fbq) fbq('track', 'Lead', { content_name: 'NoCo Quiz Submit' });
-                  if (window.gtag) gtag('event', 'generate_lead', { event_category: 'quiz' });
+                  // A submit ATTEMPT is a click, not a lead: it goes to the CTAClick
+                  // audience. Lead / generate_lead fire only once the receiver confirms
+                  // it created the lead (see confirmLead below).
+                  if (window.fbq) fbq('trackCustom', 'CTAClick', { cta: 'NoCo Quiz Submit', page: location.pathname });
                   if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
+
+                  // The receiver answers HTTP 200 even when it could not create the lead
+                  // ({ ok: false }), so only an explicit { ok: true } counts as a lead.
+                  var leadCounted = false;
+                  function confirmLead(data) {
+                    if (leadCounted || !data || data.ok !== true) return;
+                    leadCounted = true;
+                    if (window.fbq) fbq('track', 'Lead', { content_name: 'NoCo Quiz Submit' });
+                    if (window.gtag) gtag('event', 'generate_lead', { event_category: 'quiz' });
+                  }
 
                   function showSuccess() {
                     if (!success) { return; }
@@ -450,7 +461,10 @@
                     signal: controller ? controller.signal : undefined
                   }).then(function (res) {
                     clearTimeout(timer);
-                    if (res && res.ok) { showSuccess(); }
+                    if (res && res.ok) {
+                      showSuccess();
+                      res.json().then(confirmLead).catch(function () {});
+                    }
                     else { fallbackNativePost(); }   // reachable but not OK -> native retry
                   }).catch(function () {
                     clearTimeout(timer);
