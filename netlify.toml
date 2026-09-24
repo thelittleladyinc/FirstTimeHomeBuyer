@@ -1,0 +1,25 @@
+# 2026-09-24: /quiz is retired in favour of the homepage quiz (/#quiz).
+#
+# /quiz is a prebuilt React app whose lead capture calls a tRPC backend at
+# /api/trpc (leads.capturePartialLead, leads.submitToLofty). That backend does
+# not exist on this static site -- and the page also loaded its JS/CSS from
+# /assets/ while they live in /quiz/assets/. Even with the path fixed, a visitor
+# would type their name, email and phone, get a score, and the lead would be
+# silently dropped (the app catches the failed submit and shows the result
+# anyway). The homepage quiz posts to the command-center receiver, which reaches
+# Lofty, so every old /quiz link and search result goes there instead.
+#
+# force = true because /quiz/index.html still exists and would otherwise be
+# served in preference to the rule. This file only adds redirects; build and
+# publish settings stay as configured in the Netlify UI.
+[[redirects]]
+  from = "/quiz"
+  to = "/#quiz"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/quiz/*"
+  to = "/#quiz"
+  status = 301
+  force = true
