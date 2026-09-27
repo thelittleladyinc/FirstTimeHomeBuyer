@@ -379,7 +379,42 @@
                       <option value="More than $10,000">More than $10,000</option>
                     </select>
                   </label>
+                  <!-- Optional: used only to show local programs on the results screen.
+                       Keys must match "areas" / "occupations" in /data/dpa-programs.json. -->
+                  <label class="block">
+                    <span class="text-sm font-bold text-slate-800">Where are you hoping to buy? <span class="font-medium text-slate-500">(optional)</span></span>
+                    <select name="targetArea" class="mt-1 w-full rounded-lg border border-slate-300 px-4 py-3 text-slate-900 bg-white focus:border-[#1D3557] focus:ring-2 focus:ring-[#1D3557]/30 outline-none">
+                      <option value="">Not sure yet</option>
+                      <option value="fort-collins">Fort Collins</option>
+                      <option value="loveland">Loveland</option>
+                      <option value="greeley">Greeley</option>
+                      <option value="windsor">Windsor</option>
+                      <option value="johnstown">Johnstown</option>
+                      <option value="berthoud">Berthoud</option>
+                      <option value="wellington">Wellington</option>
+                      <option value="timnath">Timnath</option>
+                      <option value="severance">Severance</option>
+                      <option value="evans">Evans</option>
+                      <option value="longmont">Longmont</option>
+                      <option value="other-larimer">Elsewhere in Larimer County</option>
+                      <option value="other-weld">Elsewhere in Weld County</option>
+                    </select>
+                  </label>
+                  <label class="block">
+                    <span class="text-sm font-bold text-slate-800">Work in one of these fields? <span class="font-medium text-slate-500">(optional)</span></span>
+                    <select name="occupation" class="mt-1 w-full rounded-lg border border-slate-300 px-4 py-3 text-slate-900 bg-white focus:border-[#1D3557] focus:ring-2 focus:ring-[#1D3557]/30 outline-none">
+                      <option value="">None of these / prefer not to say</option>
+                      <option value="co-public-school">Colorado public school employee (preK–12)</option>
+                      <option value="private-school-teacher">Private school teacher (preK–12)</option>
+                      <option value="law-enforcement">Law enforcement</option>
+                      <option value="firefighter">Firefighter</option>
+                      <option value="emt">EMT</option>
+                    </select>
+                  </label>
                 </div>
+                <!-- Filled in on submit with the names of the programs shown on the results
+                     screen, so the lead sent to the command center carries them too. -->
+                <input type="hidden" name="matched_programs" id="noco-matched-programs" value="">
                 <label class="flex items-start gap-3 mt-6">
                   <input type="checkbox" name="consent" value="yes" id="noco-consent" checked class="mt-1 h-5 w-5 rounded border-slate-300 text-[#1D3557]">
                   <span class="text-xs text-slate-600">I agree to be contacted by Christine Gwinnup — The Little Lady Sells Homes — about my homeownership options by call, text, or email. Message/data rates may apply. We never sell your info.</span>
@@ -396,9 +431,110 @@
                 <h3 class="text-2xl font-black text-slate-900">You're all set!</h3>
                 <p class="mt-3 text-slate-700 font-medium">Thanks — your personalized Northern Colorado homeownership roadmap is on its way. Christine will reach out shortly with your next step.</p>
                 <a href="https://calendly.com/thelittleladysellshomes/30min" class="inline-block mt-6 rounded-lg bg-[#1D3557] px-8 py-4 text-white font-black hover:bg-[#15273F] transition-colors shadow-lg">Want to talk sooner? Book a quick call →</a>
+
+                <!-- Programs matched to the visitor's answers (built by the script below from
+                     /data/dpa-programs.json). Stays hidden when nothing could be loaded. -->
+                <div id="noco-programs" class="hidden mt-10 text-left">
+                  <h3 class="text-xl sm:text-2xl font-black text-slate-900 text-center">Programs you may qualify for</h3>
+                  <p class="mt-2 text-sm text-slate-600 font-medium text-center">Based on your answers. Each one has its own rules, so confirm with a lender before counting on it.</p>
+                  <ul id="noco-program-list" class="mt-6 space-y-4"></ul>
+                  <div class="mt-6 rounded-xl bg-[#F5F0E8] border border-[#DEB3A5] p-5 text-center">
+                    <p class="font-bold text-slate-900">Want to know which of these actually fit you?</p>
+                    <p class="mt-1 text-sm text-slate-700">Book a free call with Christine. She'll walk through your options and connect you with one of her preferred local lenders to confirm what you qualify for.</p>
+                    <a href="https://calendly.com/thelittleladysellshomes/30min" class="inline-block mt-4 rounded-lg bg-[#1D3557] px-6 py-3 text-white font-black hover:bg-[#15273F] transition-colors shadow">Book a call with Christine →</a>
+                  </div>
+                  <p id="noco-programs-disclaimer" class="mt-5 text-xs text-slate-500 leading-relaxed">
+                    This list is general information, not a loan offer, pre-approval or promise of eligibility. Programs, income limits, credit minimums and funding change often and are set by each program's administrator, and final eligibility is decided by the lender and program. Figures were checked against each program's official page on the date shown. Christine Gwinnup is a REALTOR® with LPT Realty, not a lender. Equal Housing Opportunity.
+                  </p>
+                </div>
               </div>
             </div>
             <p class="mt-4 text-center text-xs text-[#F5F0E8]/70">Equal Housing Opportunity · LPT Realty LLC · We never sell your info.</p>
+            <script src="/assets/dpa-match.js"></script>
+            <script>
+              // "Programs you may qualify for": loads /data/dpa-programs.json, matches it to
+              // the visitor's answers on submit (assets/dpa-match.js), puts the matched names
+              // in the hidden matched_programs field, and shows them on the results screen.
+              // Every step is optional: if anything here fails, the lead is submitted exactly
+              // as before and the results screen simply has no program list.
+              (function () {
+                var data = null;
+                var results = [];
+                try {
+                  fetch('/data/dpa-programs.json', { headers: { 'Accept': 'application/json' } })
+                    .then(function (r) { return r.ok ? r.json() : null; })
+                    .then(function (j) { if (j && j.programs) data = j; })
+                    .catch(function () {});
+                } catch (e) {}
+
+                function el(tag, cls, text) {
+                  var n = document.createElement(tag);
+                  if (cls) n.className = cls;
+                  if (text) n.textContent = text;
+                  return n;
+                }
+                function bullets(items, cls) {
+                  var ul = el('ul', 'mt-1 space-y-1 list-disc pl-5 ' + (cls || 'text-sm text-slate-700'));
+                  items.forEach(function (t) { ul.appendChild(el('li', '', t)); });
+                  return ul;
+                }
+                function niceDate(iso) {
+                  var d = new Date(iso + 'T12:00:00');
+                  return isNaN(d) ? iso : d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+                }
+
+                window.NocoPrograms = {
+                  // Called on submit, before the answers are sent.
+                  prepare: function (form) {
+                    results = [];
+                    var hidden = document.getElementById('noco-matched-programs');
+                    if (!data || !window.DpaMatch) { if (hidden) hidden.value = ''; return; }
+                    var fd = new FormData(form);
+                    var answers = {};
+                    ['ownHome', 'veteran', 'credit', 'downPayment', 'targetArea', 'occupation'].forEach(function (k) { answers[k] = fd.get(k) || ''; });
+                    results = window.DpaMatch.match(data, answers);
+                    if (hidden) {
+                      hidden.value = results
+                        .filter(function (r) { return !(r.program.match && r.program.match.always); })
+                        .map(function (r) { return r.program.name; })
+                        .join('; ');
+                    }
+                  },
+                  // Called when the results screen is shown.
+                  render: function () {
+                    var wrap = document.getElementById('noco-programs');
+                    var list = document.getElementById('noco-program-list');
+                    if (!wrap || !list || !results.length) return;
+                    list.textContent = '';
+                    results.forEach(function (r) {
+                      var p = r.program;
+                      var li = el('li', 'rounded-xl border border-slate-200 bg-white p-5 shadow-sm');
+                      li.appendChild(el('p', 'text-xs font-black uppercase tracking-wider text-[#B86F7A]', p.administrator));
+                      li.appendChild(el('h4', 'mt-1 text-lg font-black text-slate-900 leading-snug', p.name));
+                      li.appendChild(el('p', 'mt-1 text-sm text-slate-700', p.who_its_for));
+                      li.appendChild(el('p', 'mt-3 text-sm font-bold text-slate-900', 'Why it may fit'));
+                      li.appendChild(bullets(r.reasons));
+                      if (r.caveats.length) {
+                        li.appendChild(el('p', 'mt-3 text-sm font-bold text-slate-900', 'Check first'));
+                        li.appendChild(bullets(r.caveats));
+                      }
+                      var det = el('details', 'mt-3');
+                      det.appendChild(el('summary', 'cursor-pointer text-sm font-bold text-[#1D3557]', 'Key rules'));
+                      det.appendChild(bullets(p.key_rules));
+                      li.appendChild(det);
+                      var foot = el('p', 'mt-3 text-xs text-slate-500');
+                      var a = el('a', 'font-bold text-[#1D3557] underline', 'Official details');
+                      a.href = p.url; a.target = '_blank'; a.rel = 'noopener';
+                      foot.appendChild(a);
+                      foot.appendChild(document.createTextNode(' · Checked ' + niceDate(p.last_verified)));
+                      li.appendChild(foot);
+                      list.appendChild(li);
+                    });
+                    wrap.classList.remove('hidden');
+                  }
+                };
+              })();
+            </script>
             <script>
               // Submit to the command-center receiver via fetch so we can show an in-page
               // success message and keep the lead on owninnoco.com.
@@ -427,6 +563,10 @@
                   if (window.fbq) fbq('trackCustom', 'CTAClick', { cta: 'NoCo Quiz Submit', page: location.pathname });
                   if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
 
+                  // Match programs now so matched_programs goes out with the answers (on the
+                  // fetch and on the native-POST fallback alike). Never blocks the lead.
+                  try { if (window.NocoPrograms) window.NocoPrograms.prepare(form); } catch (err) {}
+
                   // The receiver answers HTTP 200 even when it could not create the lead
                   // ({ ok: false }), so only an explicit { ok: true } counts as a lead.
                   var leadCounted = false;
@@ -441,7 +581,9 @@
                     if (!success) { return; }
                     form.classList.add('hidden');
                     success.classList.remove('hidden');
-                    try { success.scrollIntoView({ behavior: 'smooth', block: 'center' }); } catch (err) {}
+                    try { if (window.NocoPrograms) window.NocoPrograms.render(); } catch (err) {}
+                    // 'start', not 'center': with the program list the panel is taller than the screen.
+                    try { success.scrollIntoView({ behavior: 'smooth', block: 'start' }); } catch (err) {}
                   }
 
                   // Bulletproof fallback: submit the real form (full-page POST) so the lead

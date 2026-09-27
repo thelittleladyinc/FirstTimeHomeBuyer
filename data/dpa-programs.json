@@ -1,0 +1,457 @@
+{
+  "schema_version": 1,
+  "last_reviewed": "2026-09-27",
+  "review_every_days": 31,
+  "how_verified": "Each figure below was checked against the official page or PDF linked in its program's sources (official administrator domains only: chfainfo.com, chaconline.org, hud.gov, va.gov, rd.usda.gov, larimer.gov, greeleygov.com and the local Habitat affiliates). On 2026-09-27 the pages were read through search-indexed copies of those official pages because direct page fetches were blocked from the build environment. Where a figure could not be confirmed it is left out and the program links to its source instead. Re-verify by opening each source URL (see README).",
+  "areas": {
+    "fort-collins": { "label": "Fort Collins", "counties": ["larimer"] },
+    "loveland": { "label": "Loveland", "counties": ["larimer"] },
+    "greeley": { "label": "Greeley", "counties": ["weld"] },
+    "windsor": { "label": "Windsor", "counties": ["weld", "larimer"] },
+    "johnstown": { "label": "Johnstown", "counties": ["weld", "larimer"] },
+    "berthoud": { "label": "Berthoud", "counties": ["larimer", "weld"] },
+    "wellington": { "label": "Wellington", "counties": ["larimer"] },
+    "timnath": { "label": "Timnath", "counties": ["larimer"] },
+    "severance": { "label": "Severance", "counties": ["weld"] },
+    "evans": { "label": "Evans", "counties": ["weld"] },
+    "longmont": { "label": "Longmont", "counties": ["boulder", "weld"] },
+    "other-larimer": { "label": "Somewhere else in Larimer County", "counties": ["larimer"] },
+    "other-weld": { "label": "Somewhere else in Weld County", "counties": ["weld"] }
+  },
+  "occupations": {
+    "co-public-school": "Colorado public school or school district employee (preK-12)",
+    "private-school-teacher": "PreK-12 teacher at a private school",
+    "law-enforcement": "Law enforcement officer",
+    "firefighter": "Firefighter",
+    "emt": "Emergency medical technician (EMT)"
+  },
+  "programs": [
+    {
+      "id": "chfa-firststep",
+      "name": "CHFA FirstStep / FirstStep Plus",
+      "administrator": "Colorado Housing and Finance Authority (CHFA)",
+      "type": "first_mortgage",
+      "who_its_for": "First-time homebuyers (no ownership interest in a principal residence during the past 3 years) or qualified veterans, buying anywhere in Colorado with a 30-year FHA loan.",
+      "key_rules": [
+        "First-time homebuyer or qualified veteran",
+        "Minimum credit score 620 for every scored borrower (borrowers with no score are permitted)",
+        "Every borrower completes a CHFA-approved homebuyer education class before closing",
+        "Income and purchase-price limits apply by county, household size and targeted area. See CHFA's income limits (effective June 15, 2026)",
+        "Can be paired with CHFA down payment assistance"
+      ],
+      "income_limit": { "applies": true, "source": "https://www.chfainfo.com/homeownership/income-limits", "as_of": "2026-06-15" },
+      "min_credit": 620,
+      "homebuyer_education": true,
+      "max_assistance": null,
+      "url": "https://www.chfainfo.com/single-family-participating-lenders/chfa-firststep",
+      "sources": [
+        "https://www.chfainfo.com/single-family-participating-lenders/chfa-firststep",
+        "https://www.chfainfo.com/getattachment/4e0ac051-ffd8-468c-926c-2c9fb9547999/CHFA-FirstStep-and-Plus-matrix.pdf",
+        "https://www.chfainfo.com/getattachment/0d14dd17-fdaa-4cc8-8cb1-b1407d7beca9/CHFA-Income-Limits.pdf"
+      ],
+      "match": { "first_time": "required_or_veteran", "min_credit": 620 },
+      "last_verified": "2026-09-27"
+    },
+    {
+      "id": "chfa-firstgeneration",
+      "name": "CHFA FirstGeneration",
+      "administrator": "Colorado Housing and Finance Authority (CHFA)",
+      "type": "first_mortgage_with_dpa",
+      "who_its_for": "Buyers who have never owned a home and whose parents or guardians have never owned a home. Buyers who lived in foster care need only to have never owned a home.",
+      "key_rules": [
+        "You and your parents or guardians have never owned a home (foster-care exception above)",
+        "30-year fixed FHA loan with down payment assistance of up to $25,000 as a deferred second mortgage",
+        "Minimum credit score 620 for every scored borrower",
+        "Income and purchase-price limits apply. See CHFA's income limits (effective June 15, 2026)",
+        "CHFA-approved homebuyer education required"
+      ],
+      "income_limit": { "applies": true, "source": "https://www.chfainfo.com/homeownership/income-limits", "as_of": "2026-06-15" },
+      "min_credit": 620,
+      "homebuyer_education": true,
+      "max_assistance": "Up to $25,000 (deferred second mortgage)",
+      "url": "https://www.chfainfo.com/single-family-participating-lenders/chfa-firststep",
+      "sources": [
+        "https://www.chfainfo.com/single-family-participating-lenders/chfa-firststep",
+        "https://www.chfainfo.com/getattachment/013bd34d-30b3-4176-ba09-8e67fe1b4b46/CHFA-FirstGeneration-matrix.pdf",
+        "https://www.chfainfo.com/homeownership/down-payment-assistance"
+      ],
+      "match": { "first_time": "required", "min_credit": 620, "rank_adjust": 15 },
+      "fit_note": "Only if neither you nor your parents or guardians have ever owned a home.",
+      "last_verified": "2026-09-27"
+    },
+    {
+      "id": "chfa-smartstep",
+      "name": "CHFA SmartStep / SmartStep Plus",
+      "administrator": "Colorado Housing and Finance Authority (CHFA)",
+      "type": "first_mortgage",
+      "who_its_for": "First-time and repeat buyers using an FHA, VA or USDA-RD loan.",
+      "key_rules": [
+        "Not limited to first-time homebuyers",
+        "FHA, VA or USDA-RD loan",
+        "Every borrower completes a CHFA-approved homebuyer education class before closing",
+        "Income and purchase-price limits apply. See CHFA's income limits (effective June 15, 2026)",
+        "Can be paired with the CHFA down payment assistance grant or second mortgage"
+      ],
+      "income_limit": { "applies": true, "source": "https://www.chfainfo.com/homeownership/income-limits", "as_of": "2026-06-15" },
+      "min_credit": null,
+      "homebuyer_education": true,
+      "max_assistance": null,
+      "url": "https://www.chfainfo.com/getattachment/3ae13693-82ec-498d-8d22-72987ad3f3ac/CHFA-SmartStep-Plus-matrix.pdf",
+      "sources": [
+        "https://www.chfainfo.com/getattachment/3ae13693-82ec-498d-8d22-72987ad3f3ac/CHFA-SmartStep-Plus-matrix.pdf",
+        "https://www.chfainfo.com/homeownership/down-payment-assistance"
+      ],
+      "match": {},
+      "last_verified": "2026-09-27"
+    },
+    {
+      "id": "chfa-preferred",
+      "name": "CHFA Preferred / Preferred Plus",
+      "administrator": "Colorado Housing and Finance Authority (CHFA)",
+      "type": "first_mortgage",
+      "who_its_for": "Buyers using a conventional (Fannie Mae / Freddie Mac HFA Preferred) loan.",
+      "key_rules": [
+        "Conventional loan",
+        "Minimum credit score is the greater of 620 or the Fannie Mae / Freddie Mac minimum",
+        "Every borrower completes a CHFA-approved homebuyer education class before closing",
+        "Income and purchase-price limits apply. See CHFA's income limits (effective June 15, 2026)"
+      ],
+      "income_limit": { "applies": true, "source": "https://www.chfainfo.com/homeownership/income-limits", "as_of": "2026-06-15" },
+      "min_credit": 620,
+      "homebuyer_education": true,
+      "max_assistance": null,
+      "url": "https://www.chfainfo.com/getattachment/735fcbbb-d6da-4fde-a7be-bc44a3ac6372/CHFA_PreferredPurchase_matrix.pdf",
+      "sources": [
+        "https://www.chfainfo.com/getattachment/735fcbbb-d6da-4fde-a7be-bc44a3ac6372/CHFA_PreferredPurchase_matrix.pdf"
+      ],
+      "match": { "min_credit": 620 },
+      "last_verified": "2026-09-27"
+    },
+    {
+      "id": "chfa-dpa-grant",
+      "name": "CHFA Down Payment Assistance Grant",
+      "administrator": "Colorado Housing and Finance Authority (CHFA)",
+      "type": "dpa_grant",
+      "who_its_for": "Buyers using a CHFA first mortgage who need help with the down payment and closing costs.",
+      "key_rules": [
+        "Up to 3% of the first mortgage amount or $25,000, whichever is less",
+        "Does not have to be repaid",
+        "Must be paired with a CHFA first mortgage loan",
+        "You can use the grant or the CHFA second mortgage, not both"
+      ],
+      "income_limit": { "applies": true, "source": "https://www.chfainfo.com/homeownership/income-limits", "as_of": "2026-06-15" },
+      "min_credit": 620,
+      "homebuyer_education": true,
+      "max_assistance": "Lesser of 3% of the first mortgage or $25,000",
+      "url": "https://www.chfainfo.com/homeownership/down-payment-assistance",
+      "sources": [
+        "https://www.chfainfo.com/homeownership/down-payment-assistance",
+        "https://www.chfainfo.com/getattachment/e406520a-d66d-498b-9f8a-f35d46e36169/chfa-dpa-options.pdf"
+      ],
+      "match": { "min_credit": 620 },
+      "last_verified": "2026-09-27"
+    },
+    {
+      "id": "chfa-dpa-second",
+      "name": "CHFA Down Payment Assistance Second Mortgage",
+      "administrator": "Colorado Housing and Finance Authority (CHFA)",
+      "type": "dpa_second_mortgage",
+      "who_its_for": "Buyers using a CHFA first mortgage who want more help than the grant offers.",
+      "key_rules": [
+        "Up to 4% of the first mortgage amount or $25,000, whichever is less",
+        "0% interest with no monthly payment. Repaid when the first mortgage is paid off (including a sale or refinance) or the home stops being your primary residence",
+        "Must be paired with a CHFA first mortgage loan",
+        "You can use the second mortgage or the CHFA grant, not both"
+      ],
+      "income_limit": { "applies": true, "source": "https://www.chfainfo.com/homeownership/income-limits", "as_of": "2026-06-15" },
+      "min_credit": 620,
+      "homebuyer_education": true,
+      "max_assistance": "Lesser of 4% of the first mortgage or $25,000",
+      "url": "https://www.chfainfo.com/homeownership/down-payment-assistance",
+      "sources": [
+        "https://www.chfainfo.com/homeownership/down-payment-assistance",
+        "https://www.chfainfo.com/getattachment/e406520a-d66d-498b-9f8a-f35d46e36169/chfa-dpa-options.pdf"
+      ],
+      "match": { "min_credit": 620 },
+      "last_verified": "2026-09-27"
+    },
+    {
+      "id": "chfa-schools-to-home",
+      "name": "CHFA Schools To Home",
+      "administrator": "Colorado Housing and Finance Authority (CHFA)",
+      "type": "first_mortgage_with_dpa",
+      "who_its_for": "Full-time employees of a Colorado preK-12 public school, school district, charter school, institute charter school, BOCES or innovation zone. This is an employment-based program.",
+      "key_rules": [
+        "At least one borrower is a full-time employee of an eligible Colorado public school employer",
+        "Down payment and closing-cost help through a second mortgage of up to 25% of the first mortgage. Repayment plus a shared-appreciation payment is deferred until payoff, sale, refinance or the home stops being your primary residence",
+        "Not limited to first-time homebuyers",
+        "$1,000 minimum contribution from the borrower (may be a gift)",
+        "CHFA-approved homebuyer education required"
+      ],
+      "income_limit": { "applies": null, "source": "https://www.chfainfo.com/getattachment/4a80b626-f631-4ec0-8020-daff9c40ef82/CHFA-Schools-to-Home-Program-Matrix.pdf", "as_of": null },
+      "min_credit": null,
+      "homebuyer_education": true,
+      "max_assistance": "Up to 25% of the first mortgage (second mortgage with shared appreciation)",
+      "url": "https://www.chfainfo.com/single-family-participating-lenders/chfa-schools-to-home-program",
+      "sources": [
+        "https://www.chfainfo.com/single-family-participating-lenders/chfa-schools-to-home-program",
+        "https://www.chfainfo.com/chfa-news/07212026-schools-to-home",
+        "https://www.chfainfo.com/getattachment/4a80b626-f631-4ec0-8020-daff9c40ef82/CHFA-Schools-to-Home-Program-Matrix.pdf"
+      ],
+      "match": { "occupations": ["co-public-school"] },
+      "last_verified": "2026-09-27"
+    },
+    {
+      "id": "chac-dpa",
+      "name": "CHAC Down Payment Assistance Loan",
+      "administrator": "Colorado Housing Assistance Corporation (CHAC)",
+      "type": "dpa_second_mortgage",
+      "who_its_for": "Low- and moderate-income first-time buyers anywhere in Colorado.",
+      "key_rules": [
+        "No ownership interest in residential property during the past 3 years, for every adult in the household",
+        "Income limits by county and household size. See CHAC's income limits",
+        "At least 1% of the sales price from your own funds (not a gift), plus one month of house payment in savings",
+        "Recorded as a second mortgage and repaid, usually with monthly payments",
+        "First-time homebuyer class required"
+      ],
+      "income_limit": { "applies": true, "source": "https://chaconline.org/statewide-2023-income-limits/", "as_of": null },
+      "min_credit": null,
+      "homebuyer_education": true,
+      "max_assistance": null,
+      "url": "https://chaconline.org/borrowers/",
+      "sources": [
+        "https://chaconline.org/borrowers/",
+        "https://chaconline.org/mortgage-assistance-program-descriptions/",
+        "https://chaconline.org/statewide-2023-income-limits/"
+      ],
+      "match": { "first_time": "required" },
+      "fit_note": "Needs at least 1% of the price saved from your own money.",
+      "last_verified": "2026-09-27"
+    },
+    {
+      "id": "fha",
+      "name": "FHA-insured home loan",
+      "administrator": "U.S. Department of Housing and Urban Development (HUD) / FHA",
+      "type": "federal_loan",
+      "who_its_for": "Buyers with a smaller down payment or less-than-perfect credit. Not limited to first-time buyers.",
+      "key_rules": [
+        "Down payment as low as 3.5% with a credit score of 580 or higher",
+        "Scores of 500-579 need at least 10% down",
+        "The down payment can be a gift from family, an employer or a charitable organization",
+        "No maximum income limit. You need enough income to qualify for the payment"
+      ],
+      "income_limit": { "applies": false, "source": "https://answers.hud.gov/FHA/s/article/How-can-FHA-help-me-buy-a-home", "as_of": null },
+      "min_credit": 500,
+      "homebuyer_education": false,
+      "max_assistance": null,
+      "url": "https://www.hud.gov/helping-americans/loans",
+      "sources": [
+        "https://www.hud.gov/helping-americans/loans",
+        "https://answers.hud.gov/FHA/s/article/What-is-the-minimum-down-payment-requirement-for-FHA",
+        "https://answers.hud.gov/FHA/s/article/Does-FHA-require-a-minimum-credit-score-and-how-is-it-determined"
+      ],
+      "match": { "min_credit": 500 },
+      "last_verified": "2026-09-27"
+    },
+    {
+      "id": "va-home-loan",
+      "name": "VA-guaranteed home loan",
+      "administrator": "U.S. Department of Veterans Affairs (VA)",
+      "type": "federal_loan",
+      "who_its_for": "Veterans, service members and eligible surviving spouses with a VA Certificate of Eligibility (COE).",
+      "key_rules": [
+        "In most cases no down payment is required",
+        "Needs a Certificate of Eligibility plus VA and lender credit and income standards",
+        "A down payment may be needed if you lack enough remaining entitlement"
+      ],
+      "income_limit": { "applies": false, "source": "https://www.va.gov/housing-assistance/home-loans/loan-types/purchase-loan/", "as_of": null },
+      "min_credit": null,
+      "homebuyer_education": false,
+      "max_assistance": null,
+      "url": "https://www.va.gov/housing-assistance/home-loans/loan-types/purchase-loan/",
+      "sources": [
+        "https://www.va.gov/housing-assistance/home-loans/loan-types/purchase-loan/",
+        "https://www.va.gov/housing-assistance/home-loans/loan-limits/"
+      ],
+      "match": { "veteran": "required" },
+      "last_verified": "2026-09-27"
+    },
+    {
+      "id": "usda-guaranteed",
+      "name": "USDA Single Family Housing Guaranteed Loan",
+      "administrator": "USDA Rural Development",
+      "type": "federal_loan",
+      "who_its_for": "Low- and moderate-income buyers purchasing a primary home in a USDA-eligible rural area. Some areas outside Northern Colorado's larger cities may qualify.",
+      "key_rules": [
+        "The property must be in an eligible rural area. Check the exact address on USDA's eligibility map",
+        "Household income, counting every adult, must be under the area's moderate limit (115% of area median income)",
+        "100% financing: no down payment for those who qualify",
+        "Primary residence only"
+      ],
+      "income_limit": { "applies": true, "source": "https://eligibility.sc.egov.usda.gov/", "as_of": null },
+      "min_credit": null,
+      "homebuyer_education": false,
+      "max_assistance": null,
+      "url": "https://www.rd.usda.gov/programs-services/single-family-housing-programs/single-family-housing-guaranteed-loan-program",
+      "sources": [
+        "https://www.rd.usda.gov/programs-services/single-family-housing-programs/single-family-housing-guaranteed-loan-program",
+        "https://www.rd.usda.gov/media/file/download/usda-rd-sfh-guarantee-loan-program-101-jan-2026.pdf",
+        "https://eligibility.sc.egov.usda.gov/eligibility/welcomeAction.do?pageAction=sfp"
+      ],
+      "match": { "exclude_areas": ["fort-collins", "loveland", "greeley", "longmont"] },
+      "fit_note": "Depends on the exact address. Check it on USDA's map.",
+      "last_verified": "2026-09-27"
+    },
+    {
+      "id": "hud-gnnd",
+      "name": "HUD Good Neighbor Next Door",
+      "administrator": "U.S. Department of Housing and Urban Development (HUD)",
+      "type": "federal_discount",
+      "who_its_for": "Law enforcement officers, preK-12 teachers, firefighters and EMTs. This is an employment-based program.",
+      "key_rules": [
+        "50% off the list price of an eligible HUD-owned home in a HUD revitalization area",
+        "You must live in the home as your primary residence for 36 months",
+        "The discount is a no-interest, no-payment second mortgage if you meet the occupancy requirement",
+        "Homes are listed for 7 days. Multiple offers are decided by random lottery. Eligible homes in any given area can be rare"
+      ],
+      "income_limit": { "applies": false, "source": "https://www.hud.gov/helping-americans/good-neighbor", "as_of": null },
+      "min_credit": null,
+      "homebuyer_education": false,
+      "max_assistance": "50% discount off the list price (eligible HUD homes only)",
+      "url": "https://www.hud.gov/helping-americans/good-neighbor",
+      "sources": [
+        "https://www.hud.gov/helping-americans/good-neighbor",
+        "https://www.hud.gov/sites/default/files/SFH/documents/GNNDConsFS.pdf"
+      ],
+      "match": { "occupations": ["co-public-school", "private-school-teacher", "law-enforcement", "firefighter", "emt"] },
+      "fit_note": "School employees qualify only as teachers.",
+      "last_verified": "2026-09-27"
+    },
+    {
+      "id": "habitat-greeley-weld",
+      "name": "Greeley-Weld Habitat for Humanity Homeownership",
+      "administrator": "Greeley-Weld Habitat for Humanity",
+      "type": "nonprofit_homeownership",
+      "who_its_for": "Weld County households earning 30-80% of HUD's area median income who are willing to partner with Habitat.",
+      "key_rules": [
+        "Have lived or worked in Weld County for at least one year",
+        "Household income between 30% and 80% of HUD's area median income",
+        "At least 150 hours of partnership volunteer hours",
+        "Selection is based on need, willingness to partner and ability to repay an affordable mortgage"
+      ],
+      "income_limit": { "applies": true, "source": "https://www.greeleyhabitat.org/homeownership", "as_of": null },
+      "min_credit": null,
+      "homebuyer_education": null,
+      "max_assistance": null,
+      "url": "https://www.greeleyhabitat.org/homeownership",
+      "sources": ["https://www.greeleyhabitat.org/homeownership"],
+      "match": { "counties": ["weld"] },
+      "last_verified": "2026-09-27"
+    },
+    {
+      "id": "habitat-fort-collins",
+      "name": "Fort Collins Habitat for Humanity Homeownership",
+      "administrator": "Fort Collins Habitat for Humanity",
+      "type": "nonprofit_homeownership",
+      "who_its_for": "Households in the Fort Collins area who need affordable housing and can partner with Habitat.",
+      "key_rules": [
+        "Selection is based on need, willingness to partner and ability to repay an affordable mortgage",
+        "See the affiliate's application page for current income ranges and open application periods"
+      ],
+      "income_limit": { "applies": true, "source": "https://fortcollinshabitat.org/homeowner-application-process/", "as_of": null },
+      "min_credit": null,
+      "homebuyer_education": null,
+      "max_assistance": null,
+      "url": "https://fortcollinshabitat.org/homeowner-application-process/",
+      "sources": ["https://fortcollinshabitat.org/homeowner-application-process/", "https://fortcollinshabitat.org/apply/"],
+      "match": { "areas": ["fort-collins", "wellington", "timnath"] },
+      "fit_note": "Confirm your town is in the affiliate's service area.",
+      "last_verified": "2026-09-27"
+    },
+    {
+      "id": "habitat-loveland",
+      "name": "Loveland Habitat for Humanity Homeownership",
+      "administrator": "Loveland Habitat for Humanity",
+      "type": "nonprofit_homeownership",
+      "who_its_for": "Households in the Loveland area who need affordable housing and can partner with Habitat.",
+      "key_rules": [
+        "Selection is based on need, willingness to partner and ability to repay an affordable mortgage",
+        "See the affiliate's homeownership page for current income ranges and open application periods"
+      ],
+      "income_limit": { "applies": true, "source": "https://www.lovelandhabitat.org/homeownership/", "as_of": null },
+      "min_credit": null,
+      "homebuyer_education": null,
+      "max_assistance": null,
+      "url": "https://www.lovelandhabitat.org/homeownership/",
+      "sources": ["https://www.lovelandhabitat.org/homeownership/"],
+      "match": { "areas": ["loveland", "berthoud"] },
+      "fit_note": "Confirm your town is in the affiliate's service area.",
+      "last_verified": "2026-09-27"
+    },
+    {
+      "id": "larimer-county-homebuyer-resources",
+      "name": "Larimer County homebuyer resources",
+      "administrator": "Larimer County Office of Housing Stability",
+      "type": "resource",
+      "who_its_for": "Buyers in Larimer County looking for local down payment help, homebuyer education and partner programs.",
+      "key_rules": [
+        "The county does not lend or give down payment help directly. It points buyers to regional partners that offer down payment grants and low-interest loans"
+      ],
+      "income_limit": { "applies": null, "source": null, "as_of": null },
+      "min_credit": null,
+      "homebuyer_education": null,
+      "max_assistance": null,
+      "url": "https://www.larimer.gov/housing/owners",
+      "sources": ["https://www.larimer.gov/housing/owners"],
+      "match": { "counties": ["larimer"] },
+      "last_verified": "2026-09-27"
+    },
+    {
+      "id": "greeley-housing-solutions",
+      "name": "City of Greeley Housing Solutions (G-HOPE)",
+      "administrator": "City of Greeley Housing Solutions",
+      "type": "resource",
+      "who_its_for": "Buyers looking in Greeley. The city oversees the G-HOPE down payment assistance program and says it is exploring more help for people who live or work in Greeley.",
+      "key_rules": [
+        "Current G-HOPE amounts and availability could not be confirmed. Ask the city before counting on it"
+      ],
+      "income_limit": { "applies": null, "source": null, "as_of": null },
+      "min_credit": null,
+      "homebuyer_education": null,
+      "max_assistance": null,
+      "url": "https://greeleygov.com/government/cmo/special-programs",
+      "sources": ["https://greeleygov.com/government/cmo/special-programs"],
+      "match": { "areas": ["greeley", "evans"] },
+      "last_verified": "2026-09-27"
+    },
+    {
+      "id": "chfa-homebuyer-education",
+      "name": "CHFA homebuyer education class",
+      "administrator": "Colorado Housing and Finance Authority (CHFA)",
+      "type": "resource",
+      "who_its_for": "Anyone planning to use a CHFA loan or down payment help. Most programs above require it, so it is a good first step.",
+      "key_rules": [
+        "Required for every borrower on a CHFA loan, completed before closing",
+        "In person (no cost) or online (eHome America, $75 per borrower unless you get a free code), in English or Spanish",
+        "Takes about 6-8 hours. The certificate is good for 12 months"
+      ],
+      "income_limit": { "applies": false, "source": null, "as_of": null },
+      "min_credit": null,
+      "homebuyer_education": true,
+      "max_assistance": null,
+      "url": "https://www.chfainfo.com/homeownership/homebuyer-education",
+      "sources": ["https://www.chfainfo.com/homeownership/homebuyer-education"],
+      "match": { "always": true },
+      "last_verified": "2026-09-27"
+    }
+  ],
+  "not_listed": [
+    { "name": "City of Fort Collins Homebuyer Assistance (HBA)", "reason": "The city's HBA page says it no longer provides direct homebuyer loans (only servicing existing ones).", "source": "https://www.fcgov.com/socialsustainability/hba.php", "checked": "2026-09-27" },
+    { "name": "CHFA Mortgage Credit Certificate (MCC)", "reason": "CHFA has not issued new MCCs since 2018.", "source": "https://www.chfainfo.com/homeownership/loan-servicing/current-mcc-holders", "checked": "2026-09-27" },
+    { "name": "metroDPA (City and County of Denver)", "reason": "Whether Larimer or Weld addresses are eligible could not be confirmed on an official page (only third-party sites). Add it once metrodpa.org or denvergov.org confirms coverage.", "source": "https://www.denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Department-of-Housing-Stability/Resident-Resources/Affordable-Home-Ownership/metroDPA", "checked": "2026-09-27" },
+    { "name": "Loveland Housing Authority LHOP", "reason": "Current homebuyer terms could not be confirmed from the official page.", "source": "https://lovelandhousing.org/housing-2/lhop/", "checked": "2026-09-27" },
+    { "name": "Weld County down payment assistance", "reason": "No county-run homebuyer down payment program was found on weld.gov.", "source": "https://www.weld.gov/Government/County-Programs", "checked": "2026-09-27" },
+    { "name": "Colorado Division of Housing DPA", "reason": "The state funds regional organizations rather than taking applications itself, and the Northern Colorado partner was not named on the official page.", "source": "https://cdola.colorado.gov/down-payment-assistance", "checked": "2026-09-27" },
+    { "name": "CHFA HomeAccess, CHFA SectionEight and similar programs", "reason": "Eligibility depends on disability, housing-voucher (source of income) or similar protected characteristics. The quiz does not ask about or match on those; a lender can discuss them.", "source": "https://www.chfainfo.com/homeownership/down-payment-assistance", "checked": "2026-09-27" }
+  ]
+}
