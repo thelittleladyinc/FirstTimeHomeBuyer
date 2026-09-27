@@ -84,10 +84,15 @@ those informational queries belong to thelittleladysellshomes.com
 ## NAP — USE EXACTLY, NEVER MODIFY
 ```
 Name:    Christine Gwinnup – The Little Lady Sells Homes, REALTOR®, LPT Realty
-Address: 2411 Glade Rd, Loveland, CO 80538
 Phone:   303-709-4262
 Email:   thelittleladyinc@gmail.com
+Display: Christine Gwinnup · LPT Realty · 303-709-4262 · Serving Northern Colorado
 ```
+**No street address, anywhere (Christine, 2026-09-26).** Do not show her street or
+mailing address on any page or in schema (`streetAddress`/`postalCode`). Colorado
+advertising rules require the brokerage name (LPT Realty), not an address. Where an
+address used to go, use the Display line above; schema keeps a city/region-only
+`PostalAddress` (Loveland, CO) plus `areaServed`.
 
 ---
 
