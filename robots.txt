@@ -1,5 +1,5 @@
 # robots.txt for owninnoco.com
-# The Bold Collective - Northern Colorado first-time homebuyer resources
+# Christine Gwinnup, LPT Realty (The Little Lady Sells Homes) - Northern Colorado first-time homebuyer resources
 
 User-agent: *
 Allow: /
