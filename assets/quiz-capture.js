@@ -8,7 +8,7 @@
  *          Meta: ViewContent {content_name:'NoCo Quiz'}      Google: quiz_start
  *      a valid email or phone has been typed
  *          Meta: QuizStarted (custom)                         Google: quiz_contact_entered
- *      "Not yet" chosen for "Are you pre-approved?"
+ *      "Not yet" (value no) chosen for "Are you pre-approved?"
  *          Meta: NotPreApproved (custom)                      Google: not_pre_approved
  *      full submit confirmed by the Command Center ({ ok: true })
  *          Meta: Lead                                         Google: generate_lead
@@ -45,7 +45,7 @@
   }
   function hasContact(values) { return validEmail(values.email) || validPhone(values.phone); }
 
-  // "Not yet" / "No" -> not pre-approved. "Working on it" and "Yes" are not.
+  // value "no" (shown as "Not yet") -> not pre-approved. "unsure" and "yes" are not.
   function isNotPreApproved(v) { return /^(no|not yet)\b/i.test(String(v || '').trim()); }
 
   function utmFrom(search) {

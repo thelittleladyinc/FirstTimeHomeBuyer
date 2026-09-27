@@ -93,10 +93,10 @@ test('ViewContent on quiz start, QuizStarted once a valid contact is typed, NotP
   assert.equal(names(w.events).length, 2, 'no QuizStarted for an invalid email');
   form.fire('input', 'email', 'ana@example.com');
   assert.deepEqual(names(w.events).slice(2), ['fbq:QuizStarted', 'gtag:quiz_contact_entered']);
-  form.fire('change', 'preApproved', 'Working on it');
+  form.fire('change', 'preApproved', 'unsure');
   assert.equal(names(w.events).length, 4);
-  form.fire('change', 'preApproved', 'Not yet');
-  form.fire('change', 'preApproved', 'Not yet');
+  form.fire('change', 'preApproved', 'no');
+  form.fire('change', 'preApproved', 'no');
   assert.deepEqual(names(w.events).slice(4), ['fbq:NotPreApproved', 'gtag:not_pre_approved'], 'fires once');
   // Each event fires once however much the visitor types.
   form.fire('input', 'phone', '9705550123');
@@ -111,7 +111,7 @@ test('no personal data in any pixel / gtag parameter', () => {
   form.fire('input', 'lastName', 'Ruiz');
   form.fire('input', 'email', 'ana@example.com');
   form.fire('input', 'phone', '970-555-0123');
-  form.fire('change', 'preApproved', 'Not yet');
+  form.fire('change', 'preApproved', 'no');
   const flat = JSON.stringify(w.events);
   for (const pii of ['Ana', 'Ruiz', 'example.com', '555', '0123', 'Not yet']) assert.ok(!flat.includes(pii), `event params leak ${pii}`);
   for (const key of ['"em"', '"ph"', '"fn"', '"ln"', '"email"', '"phone"']) assert.ok(!flat.includes(key), `event params carry ${key}`);
@@ -180,7 +180,12 @@ test('SMS consent box is UNTICKED by default with the required wording', () => {
 test('form posts to the Command Center; save notice by the email field; pre-approved question; honeypot', () => {
   assert.match(html, /<form id="noco-quiz" method="POST" action="https:\/\/bold-collective-command-center\.onrender\.com\/api\/quiz-lead"/);
   assert.ok(html.includes("We save your answers as you go so you don't lose your progress."));
-  assert.match(html, /<select name="preApproved"[\s\S]*?<option value="Not yet">/);
+  // ONE pre-approval question (from #20): values yes / no / unsure; "no" is "Not yet".
+  assert.equal((html.match(/name="preApproved"/g) || []).length, 1);
+  assert.match(html, /<select name="preApproved"[\s\S]*?<option value="no">Not yet<\/option>/);
+  assert.equal(qc.isNotPreApproved('no'), true);
+  assert.equal(qc.isNotPreApproved('unsure'), false);
+  assert.equal(qc.isNotPreApproved('yes'), false);
   assert.match(html, /name="hp_website" tabindex="-1"/);
   assert.match(html, /<script src="\/assets\/quiz-capture\.js" defer><\/script>/);
   assert.ok(qc.PARTIAL_URL.endsWith('/api/quiz-lead/partial'));
