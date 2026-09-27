@@ -20,8 +20,12 @@ for**, matched to the visitor's own answers.
 
 The names of the matched programs go to the command center in the `matched_programs` form field
 (semicolon-separated), along with the two optional answers `targetArea` and `occupation`. The
-receiver currently ignores fields it does not know, so these fields are sent but not stored or
-passed to Lofty until the receiver is updated to read them.
+receiver ignores fields it does not know, so those three are sent but not stored.
+
+For the command center's lender-intro card (`lib/lender-handoff.js`), the quiz also sends
+`preApproved` (`yes` / `no` / `unsure`; `no` is what marks a lead "not pre-approved yet") and
+`area` (the target-area answer as a town name, e.g. "Fort Collins"). The quiz has no budget
+question, so no `priceRange` is sent.
 
 ### Matching rules (conservative on purpose)
 

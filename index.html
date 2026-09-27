@@ -379,6 +379,18 @@
                       <option value="More than $10,000">More than $10,000</option>
                     </select>
                   </label>
+                  <!-- Sent as preApproved. The command center's lender-intro card
+                       (lib/lender-handoff.js preApprovalStatus) reads 'no' as "not
+                       pre-approved yet", 'yes' as pre-approved and 'unsure' as unknown. -->
+                  <label class="block sm:col-span-2">
+                    <span class="text-sm font-bold text-slate-800">Are you pre-approved for a mortgage? *</span>
+                    <select name="preApproved" required class="mt-1 w-full rounded-lg border border-slate-300 px-4 py-3 text-slate-900 bg-white focus:border-[#1D3557] focus:ring-2 focus:ring-[#1D3557]/30 outline-none">
+                      <option value="" disabled selected>Choose one</option>
+                      <option value="yes">Yes</option>
+                      <option value="no">Not yet</option>
+                      <option value="unsure">Not sure</option>
+                    </select>
+                  </label>
                   <!-- Optional: used only to show local programs on the results screen.
                        Keys must match "areas" / "occupations" in /data/dpa-programs.json. -->
                   <label class="block">
@@ -415,6 +427,9 @@
                 <!-- Filled in on submit with the names of the programs shown on the results
                      screen, so the lead sent to the command center carries them too. -->
                 <input type="hidden" name="matched_programs" id="noco-matched-programs" value="">
+                <!-- The target-area answer as a readable town name ("Fort Collins"), for the
+                     command center's lender-intro card, which reads a field named area. -->
+                <input type="hidden" name="area" id="noco-area" value="">
                 <label class="flex items-start gap-3 mt-6">
                   <input type="checkbox" name="consent" value="yes" id="noco-consent" checked class="mt-1 h-5 w-5 rounded border-slate-300 text-[#1D3557]">
                   <span class="text-xs text-slate-600">I agree to be contacted by Christine Gwinnup — The Little Lady Sells Homes — about my homeownership options by call, text, or email. Message/data rates may apply. We never sell your info.</span>
@@ -566,6 +581,10 @@
                   // Match programs now so matched_programs goes out with the answers (on the
                   // fetch and on the native-POST fallback alike). Never blocks the lead.
                   try { if (window.NocoPrograms) window.NocoPrograms.prepare(form); } catch (err) {}
+                  try {
+                    var areaSel = form.elements.targetArea, areaOut = document.getElementById('noco-area');
+                    if (areaSel && areaOut) areaOut.value = areaSel.value ? areaSel.options[areaSel.selectedIndex].text : '';
+                  } catch (err) {}
 
                   // The receiver answers HTTP 200 even when it could not create the lead
                   // ({ ok: false }), so only an explicit { ok: true } counts as a lead.
