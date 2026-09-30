@@ -145,7 +145,7 @@
 
 # SECTION B · 10 RENT-TO-OWN / FIRST-TIME HOMEBUYER VIDEOS — BOLD COLLECTIVE TEAM VOICE (45 sec max each)
 
-> **Voice:** The Bold Collective team at LPT Realty — "we," "our team," never first-person Christine. Any team member can shoot these. Christine, Kendra, Miranda, Teeca, or Melissa can be on camera.
+> **Voice:** The Bold Collective team at LPT Realty — "we," "our team," never first-person Christine. Christine is on camera.
 > **Primary CTA on every video:** *"Click the link below to schedule a 15-minute call or take the 2-minute quiz at OwnInNoCo.com."*
 > **Universal close (memorize it):** *"Click the link below to schedule. The Bold Collective team at LPT Realty is always on your side. Call us today. 303-709-4262."*
 
