@@ -6,7 +6,6 @@
 ## WHO YOU ARE WORKING FOR
 - **Christine Gwinnup** — The Little Lady Sells Homes, REALTOR®, LPT Realty
 - **Email:** thelittleladyinc@gmail.com | **Phone:** 303-709-4262
-- **Weston Gilmore** — Preferred lender | 720-605-4757 | NMLS #2053641
 
 ---
 
