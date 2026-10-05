@@ -9,9 +9,9 @@
 # anyway). The homepage quiz posts to the command-center receiver, which reaches
 # Lofty, so every old /quiz link and search result goes there instead.
 #
-# force = true because /quiz/index.html still exists and would otherwise be
-# served in preference to the rule. This file only adds redirects; build and
-# publish settings stay as configured in the Netlify UI.
+# force = true so the rule wins even if a file under /quiz/ ever comes back (the
+# folder was deleted 2026-10-05; tests/retired.test.js keeps it out). This file
+# only adds redirects; build and publish settings stay as configured in the Netlify UI.
 [[redirects]]
   from = "/quiz"
   to = "/#quiz"
