@@ -80,6 +80,8 @@ No build step and no dependencies. With Node 18+:
 node --test tests/*.test.js scripts/*.test.mjs
 ```
 
+The same command runs automatically on every pull request and on every push to `main` (`.github/workflows/tests.yml`).
+
 ## Funnel events and partial capture
 
 | Moment | What happens |

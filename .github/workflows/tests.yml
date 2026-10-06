@@ -1,0 +1,31 @@
+# Runs the site's guard tests on every pull request and on every push to main.
+#
+# The site has no build step and no dependencies, so there is no install step:
+# this is exactly the command in README.md ("Tests"). The guards include
+# tests/retired.test.js, which fails if a retired name or number appears in any
+# published file or if the dead /quiz folder comes back.
+#
+# One test skips itself here on purpose: scripts/quiz-form.test.mjs "command
+# center reads the preApproved values as intended" needs the Command Center repo
+# checked out next to this one, and CI checks out only this repo. It still runs
+# on a laptop that has both. A skip is not a failure.
+name: Tests
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node --test tests/*.test.js scripts/*.test.mjs
