@@ -4,6 +4,10 @@ Static site for the Northern Colorado Homeownership Score quiz (Christine Gwinnu
 Lady Sells Homes, LPT Realty). Netlify publishes the repository root from `main`; there is no
 build step. Standing rules for this repo live in [CLAUDE.md](CLAUDE.md).
 
+Because the root is published, `netlify.toml` answers 404 (with `404.html`) for the internal files:
+`README.md`, `CLAUDE.md`, `netlify.toml`, `tests/`, `scripts/`, `docs/` and `.github/`. A new top-level
+`.md` file or internal folder needs its own rule there; `tests/publish-root.test.js` fails until it has one.
+
 ## The quiz
 
 The quiz is in `index.html` (`#quiz`). It posts to the command-center receiver
