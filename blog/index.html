@@ -25,29 +25,8 @@
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Google tag, loaded once: Analytics GA4 - OwnInNoCo property (G-76NN5P55H2) + Google Ads Remarketing (AW-16452139344) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-76NN5P55H2"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-76NN5P55H2');
-        gtag('config', 'AW-16452139344');
-    </script>
-
-    <!-- Meta Pixel - 785995940287531 -->
-    <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '785995940287531');
-    fbq('track', 'PageView');
-    </script>
+    <!-- Tracking: the one shared include for every page (Google tag GA4 + Ads, Meta pixel). The IDs live in /assets/tracking.js only. -->
+    <script src="/assets/tracking.js"></script>
 
     <!-- AEO + AI Search Schema — OwnInNoCo Blog -->
     <script type="application/ld+json">

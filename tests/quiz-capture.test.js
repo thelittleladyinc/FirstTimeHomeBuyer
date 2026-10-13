@@ -192,10 +192,14 @@ test('form posts to the Command Center; save notice by the email field; pre-appr
 });
 
 test('pixels: the right Meta pixel, no Advanced Matching, no hacked pixel', () => {
-  const all = html + script;
+  // The pixel is set up once, in the shared include (tests/tracking-include.test.js).
+  const tracking = fs.readFileSync(path.join(ROOT, 'assets', 'tracking.js'), 'utf8');
+  const all = html + script + tracking;
   assert.ok(!all.includes('1292637128972060'));
-  assert.match(html, /fbq\('init', '785995940287531'\);/, 'init with no user-data argument');
-  assert.ok(!/fbq\('init',[^)]*,/.test(html), 'no Advanced Matching parameters');
+  assert.match(html, /<script src="\/assets\/tracking\.js"><\/script>/, 'the page loads the include');
+  assert.match(tracking, /var META_PIXEL = '785995940287531';/);
+  assert.match(tracking, /fbq\('init', META_PIXEL\);/, 'init with no user-data argument');
+  assert.ok(!/fbq\('init',[^)]*,/.test(html + tracking), 'no Advanced Matching parameters');
   assert.ok(!/\b(em|ph|fn|ln|external_id)\s*:/.test(script), 'no matching keys in event code');
   // Lead fires only once the receiver confirms { ok: true }.
   assert.match(html, /data\.ok !== true\) return;[\s\S]*fbq\('track', 'Lead'/);

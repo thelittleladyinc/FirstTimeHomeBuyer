@@ -60,7 +60,9 @@ This repository is the OwnInNoCo site (owninnoco.com, a static site with no buil
 |------|----|
 | GA4 | G-76NN5P55H2 |
 | Meta Pixel | 785995940287531 |
-| Google Ads Remarketing | AW-16452139344 (NOT YET INSTALLED — priority) |
+| Google Ads Remarketing | AW-16452139344 |
+
+All three are set in `assets/tracking.js`, the one tracking include every page loads in `<head>` (`<script src="/assets/tracking.js"></script>`). Never paste tracking code or ids into a page; `tests/tracking-include.test.js` fails if one does.
 
 **NEVER USE META PIXEL 1292637128972060 — HACKED ACCOUNT**
 

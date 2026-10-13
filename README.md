@@ -99,6 +99,8 @@ The same command runs automatically on every pull request and on every push to `
 - **No personal data goes to Meta or Google.** No event carries a name, email, phone, answer
   text or a hash of any of them, and the pixel has no Advanced Matching. Keep it that way.
 - The Meta pixel is `785995940287531` only. Never `1292637128972060` (hacked account).
+- Every page loads the Google tag and the Meta pixel through one include, `assets/tracking.js`
+  (`<script src="/assets/tracking.js"></script>` in `<head>`). The ids live only there.
 
 ## Audiences to create
 
