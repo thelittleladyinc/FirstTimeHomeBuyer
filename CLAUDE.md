@@ -3,6 +3,26 @@
 
 ---
 
+## Where we are, and the standing rules (updated 2026-10-07)
+
+This section is the short version. The live record is outside the repository, so read it before acting on anything dated:
+
+- **Shared Drive folder** "ChatGPT → Little Lady System – Shared Project" (https://drive.google.com/drive/folders/1jLZWjO9kyt4dhHjleYnt3SPrasZeDR8S): the newest "Claude Receipt" and "Claude Status Delta" notes say what is merged, what is switched on, and what Christine still owes.
+- **Roadmap** (https://claude.ai/artifact/AjWYsEwReE7gNt2Nnc1zKm) and **Go-Live page** (https://claude.ai/artifact/S7UnaNtkzmGN8s5EoFWRDk): her open list, with a link for each item.
+
+Standing rules from Christine, for every session in every repository:
+
+- Nothing merges, deploys, sends (email or text) or switches on without her word. Report outcomes faithfully, including failures and anything you could not check.
+- Never print, paste, log or commit a key, token or password. Name the environment variable only.
+- **Lofty:** every create is `cannotText: true`; the SMS consent tag only on an explicit yes where every phone on the lead matches; an unreadable or missing tag list means hold; **Do Not Contact wins, and it is both `Consent – DNC` and `#dnc`**; a Lofty `PUT` replaces the whole tag list, so always read, merge, then write; look the person up (email, then phone) before creating.
+- Email opt-out is the tag `Consent – Unsubscribed` together with `cannotEmail = true`.
+- Only Christine's own number (303-709-4262) and her Lofty number appear anywhere. She is the only agent: never add a co-agent or the former lender to copy, schema or lead routing.
+- Listing Engine work targets `staging`. Market Takeover is out of scope.
+
+This repository is the OwnInNoCo site (owninnoco.com, a static site with no build step). The homepage quiz posts to the Command Center receiver, which files the lead in Lofty; the text-message box is unticked by default and only a ticked box adds the SMS consent tag. Base new work on `main`. The former lender and the former co-agent stay out of every file (`tests/retired.test.js`).
+
+---
+
 ## WHO YOU ARE WORKING FOR
 - **Christine Gwinnup** — The Little Lady Sells Homes, REALTOR®, LPT Realty
 - **Email:** thelittleladyinc@gmail.com | **Phone:** 303-709-4262
@@ -21,10 +41,9 @@
 ## ACTIVE BRANCHES — READ BEFORE TOUCHING ANYTHING
 | Branch | Purpose | Status |
 |--------|---------|--------|
-| `claude/migrate-domain-remove-30k-aBt0g` | AEO schema + domain migration | **DEFAULT BRANCH — merge priority** |
+| `main` | Every change, including the October fixes | **Base new work here** |
+| `claude/migrate-domain-remove-30k-aBt0g` | AEO schema + domain migration | GitHub's default branch, but already fully merged into `main` (checked 2026-10-13). Do not base work on it or publish from it: it predates the October fixes and still carries the removed former-lender line. |
 | `claude/nice-cerf-3o0ds` | JotForm quiz integration | PR open |
-
-**Action required:** Merge `claude/migrate-domain-remove-30k-aBt0g` into main. Do not create new branches until this is resolved.
 
 ---
 
@@ -41,7 +60,9 @@
 |------|----|
 | GA4 | G-76NN5P55H2 |
 | Meta Pixel | 785995940287531 |
-| Google Ads Remarketing | AW-16452139344 (NOT YET INSTALLED — priority) |
+| Google Ads Remarketing | AW-16452139344 |
+
+All three are set in `assets/tracking.js`, the one tracking include every page loads in `<head>` (`<script src="/assets/tracking.js"></script>`). Never paste tracking code or ids into a page; `tests/tracking-include.test.js` fails if one does.
 
 **NEVER USE META PIXEL 1292637128972060 — HACKED ACCOUNT**
 
@@ -74,7 +95,7 @@ those informational queries belong to thelittleladysellshomes.com
 ---
 
 ## CROSS-LINKING RULES
-- OwnInNoCo → Bold: **primary CTA on every page** — this is the top cross-link priority
+- OwnInNoCo → Bold: **retired** (boldcollectivehomes.com is retired, 2026-08) — no Bold links or CTAs
 - OwnInNoCo → TLLSH: contextual only, never on hot-lead-capture pages
 - Never link OwnInNoCo → Signature (different audience entirely)
 
@@ -117,20 +138,19 @@ address used to go, use the Display line above; schema keeps a city/region-only
 ## STANDING INSTRUCTIONS — FOLLOW EVERY SESSION
 1. Never use Meta Pixel 1292637128972060 — hacked
 2. JotForm form 260648335652057 is already built — do not rebuild
-3. Merge `claude/migrate-domain-remove-30k-aBt0g` before any other branch work
+3. Base work on `main` (the old default branch is already merged into it)
 4. OwnInNoCo IDX = Lofty widget embed only, not full IDX
-5. OwnInNoCo → Bold is the primary cross-link CTA on every page
+5. No links to the retired boldcollectivehomes.com
 6. Zero gaps policy — every deliverable fully optimized
 7. Build it, then present — don't ask, just create
 
 ---
 
 ## PRIORITY FOR THIS REPO
-1. Merge default branch PR
-2. Install Google Ads remarketing tag AW-16452139344
-3. JotForm → Zapier → Lofty connection
-4. AEO schema implementation
-5. Cross-link CTAs to boldcollectivehomes.com on every page
+1. JotForm → Zapier → Lofty connection
+2. AEO schema implementation
+
+(Done or retired: the default-branch merge is in `main`; the Google Ads tag AW-16452139344 is configured on every page; the Bold Collective cross-links are retired.)
 
 ---
 

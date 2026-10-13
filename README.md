@@ -4,6 +4,10 @@ Static site for the Northern Colorado Homeownership Score quiz (Christine Gwinnu
 Lady Sells Homes, LPT Realty). Netlify publishes the repository root from `main`; there is no
 build step. Standing rules for this repo live in [CLAUDE.md](CLAUDE.md).
 
+Because the root is published, `netlify.toml` answers 404 (with `404.html`) for the internal files:
+`README.md`, `CLAUDE.md`, `netlify.toml`, `tests/`, `scripts/`, `docs/` and `.github/`. A new top-level
+`.md` file or internal folder needs its own rule there; `tests/publish-root.test.js` fails until it has one.
+
 ## The quiz
 
 The quiz is in `index.html` (`#quiz`). It posts to the command-center receiver
@@ -99,6 +103,8 @@ The same command runs automatically on every pull request and on every push to `
 - **No personal data goes to Meta or Google.** No event carries a name, email, phone, answer
   text or a hash of any of them, and the pixel has no Advanced Matching. Keep it that way.
 - The Meta pixel is `785995940287531` only. Never `1292637128972060` (hacked account).
+- Every page loads the Google tag and the Meta pixel through one include, `assets/tracking.js`
+  (`<script src="/assets/tracking.js"></script>` in `<head>`). The ids live only there.
 
 ## Audiences to create
 
